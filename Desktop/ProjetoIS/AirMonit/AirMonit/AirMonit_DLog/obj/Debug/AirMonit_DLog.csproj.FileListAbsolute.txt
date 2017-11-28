@@ -21,3 +21,14 @@ C:\Users\alex_\Desktop\Projeto IS\AirMonit\AirMonit\AirMonit_DLog\obj\Debug\AirM
 C:\Users\alex_\Desktop\Projeto IS\AirMonit\AirMonit\AirMonit_DLog\obj\Debug\AirMonit_DLog.Form1.resources
 C:\Users\alex_\Desktop\Projeto IS\AirMonit\AirMonit\AirMonit_DLog\obj\Debug\AirMonit_DLog.Properties.Resources.resources
 C:\Users\alex_\Desktop\Projeto IS\AirMonit\AirMonit\AirMonit_DLog\obj\Debug\AirMonit_DLog.csproj.GenerateResource.Cache
+C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\bin\Debug\AirMonit_DLog.exe.config
+C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\obj\Debug\AirMonit_DLog.exe
+C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\obj\Debug\AirMonit_DLog.pdb
+C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\bin\Debug\AirMonit_DLog.exe
+C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\bin\Debug\AirMonit_DLog.pdb
+C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\bin\Debug\M2Mqtt.Net.dll
+C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\bin\Debug\M2Mqtt.Net.pdb
+C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\obj\Debug\AirMonit_DLog.csprojResolveAssemblyReference.cache
+C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\obj\Debug\AirMonit_DLog.Form1.resources
+C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\obj\Debug\AirMonit_DLog.Properties.Resources.resources
+C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\obj\Debug\AirMonit_DLog.csproj.GenerateResource.Cache

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,11 +20,14 @@ namespace AirMonit_DLog
         MqttClient m_cClient = new MqttClient("127.0.0.1");
         const String STR_CHANNEL_NAME = "airValues";
         const String STR_CHANNEL_NAME1 = "airAlarm";
-        string paramXMLPath = @"log.xml";
+        string paramXMLPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\param_files\log.xml"));
         string[] m_strTopicsInfo = { STR_CHANNEL_NAME };
 
         public Form1()
         {
+
+           
+            Console.WriteLine(paramXMLPath);
             InitializeComponent();
             Connect();
             

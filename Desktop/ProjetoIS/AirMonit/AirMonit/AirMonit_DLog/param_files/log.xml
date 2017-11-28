@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <root>
+    <AirmessageId1>
+      <molecule>NO2</molecule>
+      <value>379</value>
+      <date>11/28/2017 1:01:31 PM</date>
+      <location>Leiria</location>
+    </AirmessageId1>
+  </root>
+  <root>
+    <AirmessageId1>
+      <molecule>NO2</molecule>
+      <value>344</value>
+      <date>11/28/2017 1:01:31 PM</date>
+      <location>Leiria</location>
+    </AirmessageId1>
+  </root>
+  <root>
+    <AirmessageId2>
+      <molecule>CO</molecule>
+      <value>22</value>
+      <date>11/28/2017 1:01:32 PM</date>
+      <location>Leiria</location>
+    </AirmessageId2>
+  </root>
+  <root>
+    <AirmessageId2>
+      <molecule>CO</molecule>
+      <value>25</value>
+      <date>11/28/2017 1:01:32 PM</date>
+      <location>Leiria</location>
+    </AirmessageId2>
+  </root>
+  <root>
+    <AirmessageId3>
+      <molecule>O3</molecule>
+      <value>92</value>
+      <date>11/28/2017 1:01:33 PM</date>
+      <location>Leiria</location>
+    </AirmessageId3>
+  </root>
+  <root>
+    <AirmessageId3>
+      <molecule>O3</molecule>
+      <value>135</value>
+      <date>11/28/2017 1:01:33 PM</date>
+      <location>Leiria</location>
+    </AirmessageId3>
+  </root>
+  <root>
+    <AirmessageId4>
+      <molecule>NO2</molecule>
+      <value>311</value>
+      <date>11/28/2017 1:01:34 PM</date>
+      <location>Coimbra</location>
+    </AirmessageId4>
+  </root>
+  <root>
+    <AirmessageId4>
+      <molecule>NO2</molecule>
+      <value>892</value>
+      <date>11/28/2017 1:01:34 PM</date>
+      <location>Coimbra</location>
+    </AirmessageId4>
+  </root>
+  <root>
+    <AirmessageId5>
+      <molecule>CO</molecule>
+      <value>18</value>
+      <date>11/28/2017 1:01:35 PM</date>
+      <location>Coimbra</location>
+    </AirmessageId5>
+  </root>
+  <root>
+    <AirmessageId5>
+      <molecule>CO</molecule>
+      <value>21</value>
+      <date>11/28/2017 1:01:35 PM</date>
+      <location>Coimbra</location>
+    </AirmessageId5>
+  </root>
+  <root>
+    <AirmessageId6>
+      <molecule>O3</molecule>
+      <value>153</value>
+      <date>11/28/2017 1:01:36 PM</date>
+      <location>Coimbra</location>
+    </AirmessageId6>
+  </root>
+  <root>
+    <AirmessageId6>
+      <molecule>O3</molecule>
+      <value>16</value>
+      <date>11/28/2017 1:01:36 PM</date>
+      <location>Coimbra</location>
+    </AirmessageId6>
+  </root>
+  <root>
+    <AirmessageId7>
+      <molecule>NO2</molecule>
+      <value>1030</value>
+      <date>11/28/2017 1:01:37 PM</date>
+      <location>Porto</location>
+    </AirmessageId7>
+  </root>
+  <root>
+    <AirmessageId7>
+      <molecule>NO2</molecule>
+      <value>112</value>
+      <date>11/28/2017 1:01:37 PM</date>
+      <location>Porto</location>
+    </AirmessageId7>
+  </root>
+  <root>
+    <AirmessageId8>
+      <molecule>CO</molecule>
+      <value>13</value>
+      <date>11/28/2017 1:01:38 PM</date>
+      <location>Porto</location>
+    </AirmessageId8>
+  </root>
+  <root>
+    <AirmessageId8>
+      <molecule>CO</molecule>
+      <value>22</value>
+      <date>11/28/2017 1:01:38 PM</date>
+      <location>Porto</location>
+    </AirmessageId8>
+  </root>
+  <root>
+    <AirmessageId9>
+      <molecule>O3</molecule>
+      <value>46</value>
+      <date>11/28/2017 1:01:39 PM</date>
+      <location>Porto</location>
+    </AirmessageId9>
+  </root>
+  <root>
+    <AirmessageId9>
+      <molecule>O3</molecule>
+      <value>66</value>
+      <date>11/28/2017 1:01:39 PM</date>
+      <location>Porto</location>
+    </AirmessageId9>
+  </root>
+  <root>
+    <AirmessageId10>
+      <molecule>NO2</molecule>
+      <value>1197</value>
+      <date>11/28/2017 1:01:40 PM</date>
+      <location>Lisboa</location>
+    </AirmessageId10>
+  </root>
+  <root>
+    <AirmessageId11>
+      <molecule>CO</molecule>
+      <value>17</value>
+      <date>11/28/2017 1:01:41 PM</date>
+      <location>Lisboa</location>
+    </AirmessageId11>
+  </root>
+  <root>
+    <AirmessageId12>
+      <molecule>O3</molecule>
+      <value>94</value>
+      <date>11/28/2017 1:01:42 PM</date>
+      <location>Lisboa</location>
+    </AirmessageId12>
+  </root>
+</root>
