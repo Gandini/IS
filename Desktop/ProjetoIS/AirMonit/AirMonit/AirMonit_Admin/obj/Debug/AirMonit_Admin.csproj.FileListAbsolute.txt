@@ -1,0 +1,11 @@
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\bin\Debug\AirMonit_Admin.exe.config
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\bin\Debug\AirMonit_Admin.exe
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\bin\Debug\AirMonit_Admin.pdb
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.Properties.Resources.resources
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.csproj.GenerateResource.Cache
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.csproj.CoreCompileInputs.cache
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.exe
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.pdb
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.csprojResolveAssemblyReference.cache
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.MainForm.resources
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.Statistics.resources
