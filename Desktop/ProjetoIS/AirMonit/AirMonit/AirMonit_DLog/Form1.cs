@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -22,11 +23,14 @@ namespace AirMonit_DLog
         const String STR_CHANNEL_NAME1 = "airAlarm";
         string paramXMLPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\param_files\log.xml"));
         string[] m_strTopicsInfo = { STR_CHANNEL_NAME };
+        SqlConnection con = new SqlConnection(@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = AirDB; Integrated Security = True");
+        
 
         public Form1()
         {
+            
 
-           
+
             Console.WriteLine(paramXMLPath);
             InitializeComponent();
             Connect();
@@ -61,9 +65,82 @@ namespace AirMonit_DLog
 
             String strTemp = Encoding.UTF8.GetString(e.Message);
             string[] arrParts = extractFieldsFromXmlstr(strTemp);
+            if(arrParts[1].Equals("O3", StringComparison.OrdinalIgnoreCase)){
+                Console.WriteLine("\n Insert O3 \n");
+                insertO3(arrParts);
+            }else
+            {
+                if (arrParts[1].Equals("NO2", StringComparison.OrdinalIgnoreCase))
+                {
+                    Console.WriteLine("\n Insert NO2 \n");
+                    insertNO2(arrParts);
+                }else
+                {
+                    if (arrParts[1].Equals("CO", StringComparison.OrdinalIgnoreCase))
+                    {
+                        Console.WriteLine("\n Insert CO \n");
+                        insertCO(arrParts);
+                    }
+                }
+            }
+            //buildXmlMessage(arrParts[0], arrParts[1], arrParts[2], arrParts[3], arrParts[4]);
 
-            buildXmlMessage(arrParts[0], arrParts[1], arrParts[2], arrParts[3], arrParts[4]);
+        }
 
+        private void insertNO2(string[] arrParts)
+        {
+            string queryString = "INSERT INTO NO2(value, date, local) VALUES(@value, @date, @local)";
+            SqlCommand cmd = new SqlCommand(queryString, con);
+
+            cmd.Parameters.AddWithValue("@value", arrParts[2]);
+            cmd.Parameters.AddWithValue("@date", arrParts[3]);
+            cmd.Parameters.AddWithValue("@local", arrParts[4]);
+            con.Open();
+            int i = cmd.ExecuteNonQuery();
+
+            con.Close();
+
+            if (i != 0)
+            {
+                Console.WriteLine("\nNO2 Insert Success");
+            }
+
+        }
+
+        private void insertCO(string[] arrParts)
+        {
+            string queryString = "INSERT INTO CO(value, date, local) VALUES(@value, @date, @local)";
+            SqlCommand cmd = new SqlCommand(queryString, con);
+            cmd.Parameters.AddWithValue("@value", arrParts[2]);
+            cmd.Parameters.AddWithValue("@date", arrParts[3]);
+            cmd.Parameters.AddWithValue("@local", arrParts[4]);
+            con.Open();
+            int i = cmd.ExecuteNonQuery();
+
+            con.Close();
+
+            if (i != 0)
+            {
+                Console.WriteLine("\nCO Insert Success");
+            }
+        }
+
+        private void insertO3(string[] arrParts)
+        {
+            string queryString = "INSERT INTO O3(value, date, local) VALUES(@value, @date, @local)";
+            SqlCommand cmd = new SqlCommand(queryString, con);
+            cmd.Parameters.AddWithValue("@value", arrParts[2]);
+            cmd.Parameters.AddWithValue("@date", arrParts[3]);
+            cmd.Parameters.AddWithValue("@local", arrParts[4]);
+            con.Open();
+            int i = cmd.ExecuteNonQuery();
+
+            con.Close();
+
+            if (i != 0)
+            {
+                Console.WriteLine("\nO3 Insert Success");
+            }
         }
 
         private void buildXmlMessage(string r_id, string r_molecule, string r_value, string r_time, string r_local)
