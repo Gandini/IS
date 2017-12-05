@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.dllStart = new System.Windows.Forms.Button();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -43,23 +42,10 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.delayMS = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.stopButton = new System.Windows.Forms.Button();
-            this.servStatusTBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dllStart
-            // 
-            this.dllStart.Location = new System.Drawing.Point(15, 121);
-            this.dllStart.Name = "dllStart";
-            this.dllStart.Size = new System.Drawing.Size(118, 23);
-            this.dllStart.TabIndex = 3;
-            this.dllStart.Text = "Start Air Sampling";
-            this.dllStart.UseVisualStyleBackColor = true;
-            this.dllStart.Click += new System.EventHandler(this.dllStart_Click);
+
             // 
             // bindingNavigator1
             // 
@@ -173,41 +159,7 @@
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // delayMS
-            // 
-            this.delayMS.Location = new System.Drawing.Point(12, 95);
-            this.delayMS.Name = "delayMS";
-            this.delayMS.Size = new System.Drawing.Size(134, 20);
-            this.delayMS.TabIndex = 9;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 79);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Insert Delay(ms)";
-            // 
-            // stopButton
-            // 
-            this.stopButton.Location = new System.Drawing.Point(170, 121);
-            this.stopButton.Name = "stopButton";
-            this.stopButton.Size = new System.Drawing.Size(75, 23);
-            this.stopButton.TabIndex = 11;
-            this.stopButton.Text = "Stop Transmition";
-            this.stopButton.UseVisualStyleBackColor = true;
-            this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
-            // 
-            // servStatusTBox
-            // 
-            this.servStatusTBox.Location = new System.Drawing.Point(12, 229);
-            this.servStatusTBox.Name = "servStatusTBox";
-            this.servStatusTBox.ReadOnly = true;
-            this.servStatusTBox.Size = new System.Drawing.Size(134, 20);
-            this.servStatusTBox.TabIndex = 12;
-            this.servStatusTBox.Text = "Service Stopped.";
+
             // 
             // Form1
             // 

@@ -21,17 +21,13 @@ namespace AirMonit_DLog
         MqttClient m_cClient = new MqttClient("127.0.0.1");
         const String STR_CHANNEL_NAME = "airValues";
         const String STR_CHANNEL_NAME1 = "airAlarm";
-        string paramXMLPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\param_files\log.xml"));
         string[] m_strTopicsInfo = { STR_CHANNEL_NAME };
         SqlConnection con = new SqlConnection(@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = AirDB; Integrated Security = True");
         
 
         public Form1()
         {
-            
 
-
-            Console.WriteLine(paramXMLPath);
             InitializeComponent();
             Connect();
             
@@ -62,7 +58,7 @@ namespace AirMonit_DLog
 
         void client_MqttMsgPublishReceived(Object sender, MqttMsgPublishEventArgs e)
         {
-
+            //Recebe a mensagem e determina qual o tipo de molecula ao qual a informação corresponde
             String strTemp = Encoding.UTF8.GetString(e.Message);
             string[] arrParts = extractFieldsFromXmlstr(strTemp);
             if(arrParts[1].Equals("O3", StringComparison.OrdinalIgnoreCase)){
@@ -83,12 +79,12 @@ namespace AirMonit_DLog
                     }
                 }
             }
-            //buildXmlMessage(arrParts[0], arrParts[1], arrParts[2], arrParts[3], arrParts[4]);
 
         }
 
         private void insertNO2(string[] arrParts)
         {
+            // DB Insert into Table NO2
             string queryString = "INSERT INTO NO2(value, date, local) VALUES(@value, @date, @local)";
             SqlCommand cmd = new SqlCommand(queryString, con);
 
@@ -109,6 +105,7 @@ namespace AirMonit_DLog
 
         private void insertCO(string[] arrParts)
         {
+            // DB Insert into Table CO
             string queryString = "INSERT INTO CO(value, date, local) VALUES(@value, @date, @local)";
             SqlCommand cmd = new SqlCommand(queryString, con);
             cmd.Parameters.AddWithValue("@value", arrParts[2]);
@@ -127,6 +124,7 @@ namespace AirMonit_DLog
 
         private void insertO3(string[] arrParts)
         {
+            // DB Insert into Table O3
             string queryString = "INSERT INTO O3(value, date, local) VALUES(@value, @date, @local)";
             SqlCommand cmd = new SqlCommand(queryString, con);
             cmd.Parameters.AddWithValue("@value", arrParts[2]);
@@ -143,26 +141,11 @@ namespace AirMonit_DLog
             }
         }
 
-        private void buildXmlMessage(string r_id, string r_molecule, string r_value, string r_time, string r_local)
-        {
-
-            XDocument doc = XDocument.Load(paramXMLPath);
-            //Console.WriteLine(r_id+r_molecule+r_value+r_time+r_local);
-
-            doc.Element("root").Add(new XElement("root", new XElement("AirmessageId" + r_id,
-                         new XElement("molecule", r_molecule),
-                         new XElement("value", r_value),
-                        new XElement("date", r_time),
-                        new XElement("location", r_local))));
-
-
-            doc.Save(paramXMLPath);
-
-        }
-
 
         private string[] extractFieldsFromXmlstr(string strTemp)
         {
+
+            //Separa os valores do XML num array para ser manipulado mais facilmente
             String[] messageReceived = new string[5];
 
             XmlDocument doc = new XmlDocument();

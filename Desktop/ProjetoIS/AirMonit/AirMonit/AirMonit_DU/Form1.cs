@@ -21,13 +21,17 @@ namespace AirMonit_DU
         string ipAddressDefLocal = "127.0.0.1";
         MqttClient m_cClient;
         string[] m_strTopicsInfo = { STR_CHANNEL_NAME };
-        string[] values;
-        bool send = false;
+        string[] values = new string[3];
 
         public Form1()
         {
-            InitializeComponent();
+            Connect();
+            dll.Initialize(dllStarted, 1000);
 
+        }
+
+        private void Connect()
+        {
             m_cClient = new MqttClient(ipAddressDefLocal);
             m_cClient.Connect(Guid.NewGuid().ToString());
             if (!m_cClient.IsConnected)
@@ -36,38 +40,36 @@ namespace AirMonit_DU
                 return;
             }
             Console.WriteLine("Sending connection");
+
             //Subscribe chat channel
 
             byte[] qosLevels = { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE };//QoS
             m_cClient.Subscribe(m_strTopicsInfo, qosLevels);
-
-            values = new string[3];
-
+            
         }
 
         private void regexValidation(string text)
         {
 
-            // 0 = id, 1 = nome da molecula, 2 = Valor da medida, 3 = data, 4 = Local
+            // VALUES [0 = id, 1 = nome da molecula, 2 = Valor da medida, 3 = data, 4 = Local]
             values = Regex.Split(text, @"\;");
-
-            send = true;
 
         }
 
         private void sendData()
         {
-            //adicionar valores às strings
+            //Prepara string para ser lançada no Communication Channel
 
             string strMsgtoSend = buildXmlMessage(values[0], values[1], values[2], values[3], values[4]);
 
+            //Send
             m_cClient.Publish(STR_CHANNEL_NAME, Encoding.UTF8.GetBytes(strMsgtoSend));
-            send = false;
             resetValues();
         }
 
         private string buildXmlMessage(string t_id,string t_molecule, string t_value, string t_time, string t_local)
         {
+            //Estrutura da string XML
             XmlDocument doc = new XmlDocument();
             XmlNode root = doc.CreateElement("Airmessage");
 
@@ -98,6 +100,7 @@ namespace AirMonit_DU
 
         public void resetValues()
         {
+            //Elimina Valores que já foram transmitidos na Communication Channel
             values[0] = null;
             values[1] = null;
             values[2] = null;
@@ -108,38 +111,9 @@ namespace AirMonit_DU
         public void dllStarted(string str)
         {
             regexValidation(str);
-
-            if (send == true)
-            {
-                
-                sendData();
-            }
-
+            sendData();
         }
 
-        private void dllStart_Click(object sender, EventArgs e)
-        {
-            int delay;
-
-            if (delayMS.Text == null || delayMS.Text == "")
-            {
-                delay = 1000;
-            }
-            else
-            {
-                Console.WriteLine("a " + delayMS.Text);
-                delay = Int32.Parse(delayMS.Text);
-            }
-
-            dll.Initialize(dllStarted, delay);
-            servStatusTBox.Text = "Service Running.";
-        }
-
-        private void stopButton_Click(object sender, EventArgs e)
-        {
-            dll.Stop();
-            servStatusTBox.Text = "Service Stopped.";
-        }
     }
 
 
