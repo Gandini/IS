@@ -1,0 +1,10 @@
+C:\Users\mcaro\Desktop\IS-master\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\obj\Debug\AirMonit_Alarm.csprojResolveAssemblyReference.cache
+C:\Users\mcaro\Desktop\IS-master\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\obj\Debug\AirMonit_Alarm.Form1.resources
+C:\Users\mcaro\Desktop\IS-master\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\obj\Debug\AirMonit_Alarm.Properties.Resources.resources
+C:\Users\mcaro\Desktop\IS-master\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\obj\Debug\AirMonit_Alarm.csproj.GenerateResource.Cache
+C:\Users\mcaro\Desktop\IS-master\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\obj\Debug\AirMonit_Alarm.csproj.CoreCompileInputs.cache
+C:\Users\mcaro\Desktop\IS-master\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\bin\Debug\AirMonit_Alarm.exe.config
+C:\Users\mcaro\Desktop\IS-master\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\bin\Debug\AirMonit_Alarm.exe
+C:\Users\mcaro\Desktop\IS-master\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\bin\Debug\AirMonit_Alarm.pdb
+C:\Users\mcaro\Desktop\IS-master\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\obj\Debug\AirMonit_Alarm.exe
+C:\Users\mcaro\Desktop\IS-master\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\obj\Debug\AirMonit_Alarm.pdb
