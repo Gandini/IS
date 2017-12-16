@@ -13,7 +13,7 @@ namespace AirMonit_Service.Controllers
     {
         private string CONNSTRING = System.Configuration.ConfigurationManager.ConnectionStrings["AirMonit_Service.Properties.Settings.ConnString"].ConnectionString;
 
-        public IEnumerable<NO> GetAllProducts()
+        public IEnumerable<NO> Get()
         {
             List<NO> lista = new List<NO>();
             SqlConnection conn = new SqlConnection(CONNSTRING);
