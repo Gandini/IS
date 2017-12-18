@@ -23,7 +23,8 @@ namespace AirMonit_Admin
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        { 
+        {
+          //  updateEvents();
         }
 
         private void btnStatistics_Click(object sender, EventArgs e)
@@ -45,49 +46,17 @@ namespace AirMonit_Admin
 
             chkBoxFilterDate.Enabled = true;
             checkBoxSensorsFilterDate.Enabled = true;
+            dtp_sensorData.Enabled = true;
+            chkBoxFilterDate.Enabled = true;
+            dtp_startDate.Enabled = true;
+            dtp_endDate.Enabled = true;
 
             btnStatistics.Enabled = true;
             btnStatistics.Text = "Statistics for " + listBoxCidades.Text;
 
 
             //sensores
-            listBoxCO.Items.Clear();
-            HttpWebRequest requestCO = WebRequest.Create(@"http://localhost:52643/api/" + listBoxCidades.SelectedItem.ToString() + "/CO") as HttpWebRequest;
-            requestCO.ContentType = "application/json";
-            HttpWebResponse responseCO = requestCO.GetResponse() as HttpWebResponse;
-            string jsonCO = new StreamReader(responseCO.GetResponseStream()).ReadToEnd();
-            List<CO> valoresCO = JsonConvert.DeserializeObject<List<CO>>(jsonCO);
-
-            for (int i = 0; i < valoresCO.Count; i++)
-            {
-                listBoxCO.Items.Add("City: " + valoresCO[i].local + "  Value: " + valoresCO[i].value + " Date: " + valoresCO[i].date);
-            }
-
-            listBoxNO2.Items.Clear();
-            HttpWebRequest requestNO2 = WebRequest.Create(@"http://localhost:52643/api/" + listBoxCidades.SelectedItem.ToString() + "/NO") as HttpWebRequest;
-            requestNO2.ContentType = "application/json";
-            HttpWebResponse responseNO2 = requestNO2.GetResponse() as HttpWebResponse;
-            string jsonNO2 = new StreamReader(responseNO2.GetResponseStream()).ReadToEnd();
-            List<NO> valoresNO2 = JsonConvert.DeserializeObject<List<NO>>(jsonNO2);
-
-            for (int i = 0; i < valoresNO2.Count; i++)
-            {
-                listBoxNO2.Items.Add("City: " + valoresNO2[i].local + "  Value: " + valoresNO2[i].value + " Date: " + valoresNO2[i].date);
-            }
-
-            listBoxO3.Items.Clear();
-            HttpWebRequest requestO3 = WebRequest.Create(@"http://localhost:52643/api/" + listBoxCidades.SelectedItem.ToString() + "/O3") as HttpWebRequest;
-            requestO3.ContentType = "application/json";
-            HttpWebResponse responseO3 = requestO3.GetResponse() as HttpWebResponse;
-            string jsonO3 = new StreamReader(responseO3.GetResponseStream()).ReadToEnd();
-            List<O3> valoresO3 = JsonConvert.DeserializeObject<List<O3>>(jsonO3);
-
-            for (int i = 0; i < valoresO3.Count; i++)
-            {
-                listBoxO3.Items.Add("City: " + valoresO3[i].local + "  Value: " + valoresO3[i].value + " Date: " + valoresO3[i].date);
-            }
-
-
+            getSensors();
 
 
             //alarmes
@@ -183,7 +152,7 @@ namespace AirMonit_Admin
             }
 
             listBoxNO2.Items.Clear();
-            HttpWebRequest requestNO2 = WebRequest.Create(@"http://localhost:52643/api/" + listBoxCidades.SelectedItem.ToString() + "/NO") as HttpWebRequest;
+            HttpWebRequest requestNO2 = WebRequest.Create(@"http://localhost:52643/api/" + listBoxCidades.SelectedItem.ToString() + "/NO2") as HttpWebRequest;
             requestNO2.ContentType = "application/json";
             HttpWebResponse responseNO2 = requestNO2.GetResponse() as HttpWebResponse;
             string jsonNO2 = new StreamReader(responseNO2.GetResponseStream()).ReadToEnd();
@@ -239,6 +208,25 @@ namespace AirMonit_Admin
             {
                 listBoxO3.Items.Add("City: " + valoresO3[i].local + "  Value: " + valoresO3[i].value + " Date: " + valoresO3[i].date);
             }
+        }
+
+        private void updateEvents()
+        {
+            listBoxEvents.Items.Clear();
+            HttpWebRequest requestEvents = WebRequest.Create(@"http://localhost:52643/api/Event") as HttpWebRequest;
+            requestEvents.ContentType = "application/json";
+            HttpWebResponse responseEvents = requestEvents.GetResponse() as HttpWebResponse;
+            string jsonEvents = new StreamReader(responseEvents.GetResponseStream()).ReadToEnd();
+            List<O3> valoresEvents = JsonConvert.DeserializeObject<List<O3>>(jsonEvents);
+            for (int i = 0; i < valoresEvents.Count; i++)
+            {
+                listBoxEvents.Items.Add("City: " + valoresEvents[i].local + "  Value: " + valoresEvents[i].value + " Date: " + valoresEvents[i].date);
+            }
+        }
+
+        private void btnUpdateEvents_Click(object sender, EventArgs e)
+        {
+            updateEvents();
         }
     }
 }

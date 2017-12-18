@@ -48,8 +48,9 @@
             this.dtp_sensorData = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxEvents = new System.Windows.Forms.GroupBox();
-            this.groupBoxCities = new System.Windows.Forms.GroupBox();
+            this.btnUpdateEvents = new System.Windows.Forms.Button();
             this.listBoxEvents = new System.Windows.Forms.ListBox();
+            this.groupBoxCities = new System.Windows.Forms.GroupBox();
             this.groupBoxAlarms.SuspendLayout();
             this.groupBoxSensors.SuspendLayout();
             this.groupBoxEvents.SuspendLayout();
@@ -73,8 +74,9 @@
             // 
             // dtp_startDate
             // 
+            this.dtp_startDate.Enabled = false;
             this.dtp_startDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_startDate.Location = new System.Drawing.Point(248, 405);
+            this.dtp_startDate.Location = new System.Drawing.Point(141, 401);
             this.dtp_startDate.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
             this.dtp_startDate.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
             this.dtp_startDate.Name = "dtp_startDate";
@@ -83,8 +85,9 @@
             // 
             // dtp_endDate
             // 
+            this.dtp_endDate.Enabled = false;
             this.dtp_endDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_endDate.Location = new System.Drawing.Point(569, 405);
+            this.dtp_endDate.Location = new System.Drawing.Point(462, 401);
             this.dtp_endDate.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
             this.dtp_endDate.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
             this.dtp_endDate.Name = "dtp_endDate";
@@ -94,7 +97,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(137, 410);
+            this.label2.Location = new System.Drawing.Point(30, 406);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(111, 25);
             this.label2.TabIndex = 6;
@@ -103,7 +106,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(465, 410);
+            this.label3.Location = new System.Drawing.Point(358, 406);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 25);
             this.label3.TabIndex = 7;
@@ -112,7 +115,8 @@
             // chkBoxFilterDate
             // 
             this.chkBoxFilterDate.AutoSize = true;
-            this.chkBoxFilterDate.Location = new System.Drawing.Point(793, 406);
+            this.chkBoxFilterDate.Enabled = false;
+            this.chkBoxFilterDate.Location = new System.Drawing.Point(686, 402);
             this.chkBoxFilterDate.Name = "chkBoxFilterDate";
             this.chkBoxFilterDate.Size = new System.Drawing.Size(169, 29);
             this.chkBoxFilterDate.TabIndex = 9;
@@ -137,7 +141,7 @@
             this.listBoxAlarms.ItemHeight = 25;
             this.listBoxAlarms.Location = new System.Drawing.Point(26, 30);
             this.listBoxAlarms.Name = "listBoxAlarms";
-            this.listBoxAlarms.Size = new System.Drawing.Size(1025, 354);
+            this.listBoxAlarms.Size = new System.Drawing.Size(829, 354);
             this.listBoxAlarms.TabIndex = 19;
             // 
             // groupBoxAlarms
@@ -148,9 +152,9 @@
             this.groupBoxAlarms.Controls.Add(this.label2);
             this.groupBoxAlarms.Controls.Add(this.label3);
             this.groupBoxAlarms.Controls.Add(this.chkBoxFilterDate);
-            this.groupBoxAlarms.Location = new System.Drawing.Point(1009, 516);
+            this.groupBoxAlarms.Location = new System.Drawing.Point(874, 516);
             this.groupBoxAlarms.Name = "groupBoxAlarms";
-            this.groupBoxAlarms.Size = new System.Drawing.Size(1079, 462);
+            this.groupBoxAlarms.Size = new System.Drawing.Size(870, 462);
             this.groupBoxAlarms.TabIndex = 20;
             this.groupBoxAlarms.TabStop = false;
             this.groupBoxAlarms.Text = "Alarms";
@@ -176,6 +180,7 @@
             // checkBoxSensorsFilterDate
             // 
             this.checkBoxSensorsFilterDate.AutoSize = true;
+            this.checkBoxSensorsFilterDate.Enabled = false;
             this.checkBoxSensorsFilterDate.Location = new System.Drawing.Point(703, 433);
             this.checkBoxSensorsFilterDate.Name = "checkBoxSensorsFilterDate";
             this.checkBoxSensorsFilterDate.Size = new System.Drawing.Size(169, 29);
@@ -240,6 +245,7 @@
             // 
             // dtp_sensorData
             // 
+            this.dtp_sensorData.Enabled = false;
             this.dtp_sensorData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_sensorData.Location = new System.Drawing.Point(470, 432);
             this.dtp_sensorData.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
@@ -260,13 +266,33 @@
             // 
             // groupBoxEvents
             // 
+            this.groupBoxEvents.Controls.Add(this.btnUpdateEvents);
             this.groupBoxEvents.Controls.Add(this.listBoxEvents);
             this.groupBoxEvents.Location = new System.Drawing.Point(12, 516);
             this.groupBoxEvents.Name = "groupBoxEvents";
-            this.groupBoxEvents.Size = new System.Drawing.Size(978, 414);
+            this.groupBoxEvents.Size = new System.Drawing.Size(845, 462);
             this.groupBoxEvents.TabIndex = 22;
             this.groupBoxEvents.TabStop = false;
             this.groupBoxEvents.Text = "Uncommon Events";
+            // 
+            // btnUpdateEvents
+            // 
+            this.btnUpdateEvents.Location = new System.Drawing.Point(24, 406);
+            this.btnUpdateEvents.Name = "btnUpdateEvents";
+            this.btnUpdateEvents.Size = new System.Drawing.Size(799, 41);
+            this.btnUpdateEvents.TabIndex = 18;
+            this.btnUpdateEvents.Text = "Update events list";
+            this.btnUpdateEvents.UseVisualStyleBackColor = true;
+            this.btnUpdateEvents.Click += new System.EventHandler(this.btnUpdateEvents_Click);
+            // 
+            // listBoxEvents
+            // 
+            this.listBoxEvents.FormattingEnabled = true;
+            this.listBoxEvents.ItemHeight = 25;
+            this.listBoxEvents.Location = new System.Drawing.Point(24, 30);
+            this.listBoxEvents.Name = "listBoxEvents";
+            this.listBoxEvents.Size = new System.Drawing.Size(799, 354);
+            this.listBoxEvents.TabIndex = 0;
             // 
             // groupBoxCities
             // 
@@ -279,26 +305,17 @@
             this.groupBoxCities.TabStop = false;
             this.groupBoxCities.Text = "Cities";
             // 
-            // listBoxEvents
-            // 
-            this.listBoxEvents.FormattingEnabled = true;
-            this.listBoxEvents.ItemHeight = 25;
-            this.listBoxEvents.Location = new System.Drawing.Point(24, 30);
-            this.listBoxEvents.Name = "listBoxEvents";
-            this.listBoxEvents.Size = new System.Drawing.Size(928, 354);
-            this.listBoxEvents.TabIndex = 0;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2389, 1302);
+            this.ClientSize = new System.Drawing.Size(1960, 1117);
             this.Controls.Add(this.groupBoxCities);
             this.Controls.Add(this.groupBoxEvents);
             this.Controls.Add(this.groupBoxAlarms);
             this.Controls.Add(this.groupBoxSensors);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Administration App";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBoxAlarms.ResumeLayout(false);
             this.groupBoxAlarms.PerformLayout();
@@ -334,6 +351,7 @@
         private System.Windows.Forms.CheckBox checkBoxSensorsFilterDate;
         private System.Windows.Forms.GroupBox groupBoxCities;
         private System.Windows.Forms.ListBox listBoxEvents;
+        private System.Windows.Forms.Button btnUpdateEvents;
     }
 }
 

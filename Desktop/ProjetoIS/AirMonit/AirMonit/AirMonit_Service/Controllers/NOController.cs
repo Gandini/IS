@@ -35,7 +35,7 @@ namespace AirMonit_Service.Controllers
                     n.value = (int)reader["value"];
                     n.date = (DateTime)reader["date"];
                     n.local = (string)reader["local"];
-                    
+
 
                     lista.Add(n);
                 }
@@ -70,9 +70,19 @@ namespace AirMonit_Service.Controllers
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "SELECT * FROM NO WHERE date >= @datw AND date <= @date and local = @local";
-                cmd.Parameters.AddWithValue("@date", date + "T00:00:00.000");
-                cmd.Parameters.AddWithValue("@date", date + "T23:59:59.000");
+                if (local == "All")
+                {
+                    cmd.CommandText = "SELECT * FROM NO2 WHERE date >= @date AND date <= @date";
+                }
+                else
+                {
+                    cmd.CommandText = "SELECT * FROM NO2 WHERE date >= @date AND date <= @dateEnd and local = @local";
+                }
+                string[] tempsplit = date.Split('-');
+                string joinstring = "-";
+                string newdate = tempsplit[2] + joinstring + tempsplit[1] + joinstring + tempsplit[0];
+                cmd.Parameters.AddWithValue("@date", newdate + "T00:00:00.000");
+                cmd.Parameters.AddWithValue("@dateEnd", newdate + "T23:59:59.000");
                 cmd.Parameters.AddWithValue("@local", local);
 
                 cmd.Connection = conn;
@@ -110,7 +120,7 @@ namespace AirMonit_Service.Controllers
         }
 
         [Route("api/{local}/NO2")]
-        public IEnumerable<NO> GetSensorCity(string local) //NOTA: date pode ser um Date e não um String? confirmar com grupo / ficheiro TODO
+        public IEnumerable<NO> GetSensorCity(string local)
         {
             List<NO> lista = new List<NO>();
             SqlConnection conn = new SqlConnection(CONNSTRING);
@@ -120,7 +130,14 @@ namespace AirMonit_Service.Controllers
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "SELECT * FROM NO WHERE local = @local";
+                if (local == "All")
+                {
+                    cmd.CommandText = "SELECT * FROM NO2";
+                }
+                else
+                {
+                    cmd.CommandText = "SELECT * FROM NO2 WHERE local = @local";
+                }
                 cmd.Parameters.AddWithValue("@local", local);
 
                 cmd.Connection = conn;

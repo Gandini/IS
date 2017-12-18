@@ -23,7 +23,7 @@ namespace AirMonit_Service.Controllers
             {
                 if (e != null)
                 {
-                    string userId = e.userId;
+                    int userId = e.userId;
                     string event_description = e.event_description;
                     int temperature = e.temperature;
                     string air_quality = e.air_quality;
@@ -94,13 +94,16 @@ namespace AirMonit_Service.Controllers
                     n.City_name = (string)reader["City_name"];
                     n.event_description = (string)reader["event_description"];
                     n.temperature = (int)reader["temperature"];
-                    n.userId = (string)reader["userId"];
+                    n.userId = (int)reader["userId"];
                     n.air_quality = (string)reader["air_quality"];
 
 
 
                     lista.Add(n);
                 }
+
+                
+                //n.date = DateTime.Parse((String)reader["date"] + "0000Z");
 
                 conn.Close();
                 reader.Close();

@@ -7,7 +7,7 @@ namespace AirMonit_Service.Models
 {
     public class Event
     {
-        public string userId { get; set; }
+        public int userId { get; set; }
         public string event_description { get; set; }
         public int temperature  { get; set; }
         public string air_quality { get; set; }
