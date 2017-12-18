@@ -63,8 +63,8 @@ namespace AirMonit_Service.Controllers
             return lista;
         }
 
-        [Route("api/{city}/alarms/{startDate}/{endDate}")]
-        public IEnumerable<Alarm> GetBetween(string startDate, string endDate)
+        [Route("api/{local}/alarms/{startDate}/{endDate}")]
+        public IEnumerable<Alarm> GetBetween(string startDate, string endDate, string local)
         {
             List<Alarm> lista = new List<Alarm>();
             SqlConnection conn = new SqlConnection(CONNSTRING);
@@ -74,10 +74,21 @@ namespace AirMonit_Service.Controllers
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "SELECT * FROM Alarm WHERE startDate >= @startDate AND endDate <= @endDate";
-                cmd.Parameters.AddWithValue("@startDate", startDate);
-                cmd.Parameters.AddWithValue("@endDate", endDate);
 
+                if (local == "All") {
+
+                    cmd.CommandText = "SELECT * FROM Alarm WHERE startDate >= @startDate AND endDate <= @endDate";
+                    cmd.Parameters.AddWithValue("@startDate", startDate);
+                    cmd.Parameters.AddWithValue("@endDate", endDate);
+                    
+                }
+                else
+                {
+                    cmd.CommandText = "SELECT * FROM Alarm WHERE startDate >= @startDate AND endDate <= @endDate and local = @local";
+                    cmd.Parameters.AddWithValue("@startDate", startDate);
+                    cmd.Parameters.AddWithValue("@endDate", endDate);
+                    cmd.Parameters.AddWithValue("@local", local);
+                }
                 cmd.Connection = conn;
 
                 SqlDataReader reader = cmd.ExecuteReader();
