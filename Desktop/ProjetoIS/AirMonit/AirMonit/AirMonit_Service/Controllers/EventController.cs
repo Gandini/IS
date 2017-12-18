@@ -93,8 +93,9 @@ namespace AirMonit_Service.Controllers
                     n.date = (DateTime)reader["date"];
                     n.local = (string)reader["local"];
                     n.description = (string)reader["description"];
-                    n.temp = (string)reader["temp"];
+                    n.temp = (int)reader["temp"];
                     n.userId = (string)reader["userId"];
+                    n.airQual = (string)reader["airQual"];
 
 
 
