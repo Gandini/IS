@@ -25,7 +25,8 @@ namespace AirMonit_Service.Controllers
                 {
                     string userId = e.userId;
                     string description = e.description;
-                    string temp = e.temp;
+                    int temp = e.temp;
+                    string airQual = e.airQual;
                     int value = e.value;
                     string local = e.local;
                     DateTime date = e.date;
@@ -34,7 +35,7 @@ namespace AirMonit_Service.Controllers
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand();
-                    cmd.CommandText = "INSERT INTO Eventos(userId,description,temp,value,local,date) VALUES(@userId,@description,@temp,@value,@local,@date)";
+                    cmd.CommandText = "INSERT INTO Eventos(userId,description,temp,airQual,value,local,date) VALUES(@userId,@description,@temp,@airQual,@value,@local,@date)";
 
 
                     cmd.Parameters.AddWithValue("@userId", userId);
@@ -43,6 +44,7 @@ namespace AirMonit_Service.Controllers
                     cmd.Parameters.AddWithValue("@value", value);
                     cmd.Parameters.AddWithValue("@local", local);
                     cmd.Parameters.AddWithValue("@date", date);
+                    cmd.Parameters.AddWithValue("@airQual", airQual);
                     cmd.Connection = conn;
 
                     int nRows = cmd.ExecuteNonQuery();
