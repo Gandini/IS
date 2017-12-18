@@ -22,9 +22,6 @@ namespace AirMonit_Alarm
         const String STR_CHANNEL_NAME = "airValues";
         string[] m_strTopicsInfo = { STR_CHANNEL_NAME };
 
-        const String STR_CHANNEL_NAME_ALARM = "airAlarm";
-        string[] m_strTopicsInfoAlarm = { STR_CHANNEL_NAME_ALARM };
-
         bool trigger = false;
 
         public Form1()
@@ -356,6 +353,8 @@ namespace AirMonit_Alarm
             {
                 string[] arrParts = extractFieldsFromXmlstr(strTemp);
 
+                
+
                 this.Invoke((MethodInvoker)delegate
                 {
                     richTextBoxDadosSensor.AppendText("-> Molecule: " + arrParts[0] + " - Valor: " + arrParts[1] + " - Data e Hora: " + arrParts[2] + " - Localização: " + arrParts[3] + Environment.NewLine);
@@ -400,7 +399,7 @@ namespace AirMonit_Alarm
                     if (item["value1"].InnerText == arrParts[1])
                     {
                         trigger = true;
-                        //arrParts[4] = "Alarm: " + molecule + " é igual a " + item["value1"].InnerText + "! Message: " + item["message"].InnerText + "\n";
+                        arrParts[4] = "Alarm: " + molecule + " é igual a " + item["value1"].InnerText + "! Message: " + item["message"].InnerText + "\n";
                         this.Invoke((MethodInvoker)delegate
                         {
                             richTextBoxAlarmes.AppendText("Alarm: " + molecule + " igual a " + item["value1"].InnerText + " -> Message: " + item["message"].InnerText + Environment.NewLine);
@@ -412,7 +411,7 @@ namespace AirMonit_Alarm
                     if (Int32.Parse(arrParts[1]) > Int32.Parse(item["value1"].InnerText))
                     {
                         trigger = true;
-                        //arrParts[4] = "Alarm: " + molecule + " é maior que " + item["value1"].InnerText + "! Message: " + item["message"].InnerText + "\n";
+                        arrParts[4] = "Alarm: " + molecule + " é maior que " + item["value1"].InnerText + "! Message: " + item["message"].InnerText + "\n";
                         this.Invoke((MethodInvoker)delegate
                         {
                             richTextBoxAlarmes.AppendText("Alarm: " + molecule + " maior que " + item["value1"].InnerText + " -> Message: " + item["message"].InnerText + Environment.NewLine);
@@ -424,7 +423,7 @@ namespace AirMonit_Alarm
                     if (Int32.Parse(arrParts[1]) < Int32.Parse(item["value1"].InnerText))
                     {
                         trigger = true;
-                        //arrParts[4] = "Alarm: " + molecule + " é menor que " + item["value1"].InnerText + "! Message: " + item["message"].InnerText + "\n";
+                        arrParts[4] = "Alarm: " + molecule + " é menor que " + item["value1"].InnerText + "! Message: " + item["message"].InnerText + "\n";
                         this.Invoke((MethodInvoker)delegate
                         {
                             richTextBoxAlarmes.AppendText("Alarm: " + molecule + " menor que " + item["value1"].InnerText + " -> Message: " + item["message"].InnerText + Environment.NewLine);
@@ -436,7 +435,7 @@ namespace AirMonit_Alarm
                     if (Int32.Parse(arrParts[1]) > Int32.Parse(item["value1"].InnerText) && Int32.Parse(arrParts[1]) < Int32.Parse(item["value2"].InnerText))
                     {
                         trigger = true;
-                        //arrParts[4] = "Alarm: " + molecule + " está entre " + item["value1"].InnerText + " e " + item["value2"].InnerText + "! Message: " + item["message"].InnerText + "\n";
+                        arrParts[4] = "Alarm: " + molecule + " está entre " + item["value1"].InnerText + " e " + item["value2"].InnerText + "! Message: " + item["message"].InnerText + "\n";
                         this.Invoke((MethodInvoker)delegate
                         {
                             richTextBoxAlarmes.AppendText("Alarm: " + molecule + " entre " + item["value1"].InnerText + " e " + item["value2"].InnerText + " -> Message: " + item["message"].InnerText + Environment.NewLine);
@@ -444,7 +443,6 @@ namespace AirMonit_Alarm
                     }
                 }
             }
-            //m_cClient.Publish("airAlarm", Encoding.UTF8.GetBytes(richTextBoxAlarmes.Text));
         }
 
         private string[] extractFieldsFromXmlstr(string strTemp)
