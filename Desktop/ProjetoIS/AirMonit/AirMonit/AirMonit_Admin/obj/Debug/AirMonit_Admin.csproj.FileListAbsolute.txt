@@ -24,3 +24,16 @@ C:\Users\leona\Desktop\IS_Proj\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admi
 C:\Users\leona\Desktop\IS_Proj\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.exe
 C:\Users\leona\Desktop\IS_Proj\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.pdb
 C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.StatisticsForm.resources
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\bin\Debug\AirMonit_Admin.exe.config
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\bin\Debug\AirMonit_Admin.exe
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\bin\Debug\AirMonit_Admin.pdb
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\bin\Debug\Newtonsoft.Json.xml
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.csprojResolveAssemblyReference.cache
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.MainForm.resources
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.Properties.Resources.resources
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.StatisticsForm.resources
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.csproj.GenerateResource.Cache
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.csproj.CoreCompileInputs.cache
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.exe
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.pdb
