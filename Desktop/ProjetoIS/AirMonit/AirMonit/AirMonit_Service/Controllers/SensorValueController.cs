@@ -11,7 +11,7 @@ namespace AirMonit_Service.Controllers
 {
     public class SensorValueController : ApiController
     {
-        private string CONNSTRING = System.Configuration.ConfigurationManager.ConnectionStrings["AirMonit_Service.Properties.Settings.ConnString"].ConnectionString;
+        private string CONNSTRING = System.Configuration.ConfigurationManager.ConnectionStrings["AirMonit_Service.Properties.Settings.DBConn"].ConnectionString;
 
         //TODO
         [Route("api/{city}/sensors/{date}")]
