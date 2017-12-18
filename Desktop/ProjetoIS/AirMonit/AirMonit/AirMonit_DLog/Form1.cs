@@ -21,7 +21,8 @@ namespace AirMonit_DLog
         MqttClient m_cClient = new MqttClient("127.0.0.1");
         const String STR_CHANNEL_NAME = "airValues";
         const String STR_CHANNEL_NAME1 = "airAlarm";
-        string[] m_strTopicsInfo = { STR_CHANNEL_NAME };
+        string[] m_strTopicsInfo = { STR_CHANNEL_NAME, STR_CHANNEL_NAME1 };
+        
         //SqlConnection con = new SqlConnection(@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = AirDB; Integrated Security = True");
         SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\projetoIS\Desktop\ProjetoIS\AirMonit\Base de dados\AirDB.mdf';Integrated Security = True");
 
@@ -157,7 +158,7 @@ namespace AirMonit_DLog
             messageReceived[1] = doc.SelectSingleNode("/Airmessage/molecule").InnerText;
             messageReceived[2] = doc.SelectSingleNode("/Airmessage/value").InnerText;
             messageReceived[3] = doc.SelectSingleNode("/Airmessage/time").InnerText;
-            messageReceived[4] = doc.SelectSingleNode("/Airmessage/location").InnerText;
+            messageReceived[4] = doc.SelectSingleNode("/Airmessage/local").InnerText;
 
 
             return messageReceived;

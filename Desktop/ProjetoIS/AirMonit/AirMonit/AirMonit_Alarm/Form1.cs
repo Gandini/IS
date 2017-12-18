@@ -24,6 +24,8 @@ namespace AirMonit_Alarm
         const String STR_CHANNEL_NAME = "airValues";
         string[] m_strTopicsInfo = { STR_CHANNEL_NAME };
 
+        const String STR_CHANNEL_NAME1 = "airAlarm";
+
         bool trigger = false;
 
         public Form1()
@@ -403,7 +405,7 @@ namespace AirMonit_Alarm
                         {
                             richTextBoxAlarmes.AppendText("Alarm: " + molecule + " igual a " + item["value1"].InnerText + " -> Message: " + item["message"].InnerText + Environment.NewLine);
                         });
-                        //sendData(molecule, arrParts[1], arrParts[2], arrParts[3], arrParts[4]);
+                        sendData(molecule, arrParts[1], arrParts[2], arrParts[3], arrParts[4]);
                     }
                 }
                 else if (item["operador"].InnerText == "bigger")
@@ -416,7 +418,7 @@ namespace AirMonit_Alarm
                         {
                             richTextBoxAlarmes.AppendText("Alarm: " + molecule + " maior que " + item["value1"].InnerText + " -> Message: " + item["message"].InnerText + Environment.NewLine);
                         });
-                        //sendData(molecule, arrParts[1], arrParts[2], arrParts[3], arrParts[4]);
+                        sendData(molecule, arrParts[1], arrParts[2], arrParts[3], arrParts[4]);
                     }
                 }
                 else if (item["operador"].InnerText == "smaller")
@@ -429,7 +431,7 @@ namespace AirMonit_Alarm
                         {
                             richTextBoxAlarmes.AppendText("Alarm: " + molecule + " menor que " + item["value1"].InnerText + " -> Message: " + item["message"].InnerText + Environment.NewLine);
                         });
-                        //sendData(molecule, arrParts[1], arrParts[2], arrParts[3], arrParts[4]);
+                        sendData(molecule, arrParts[1], arrParts[2], arrParts[3], arrParts[4]);
                     }
                 }
                 else if (item["operador"].InnerText == "between")
@@ -442,7 +444,7 @@ namespace AirMonit_Alarm
                         {
                             richTextBoxAlarmes.AppendText("Alarm: " + molecule + " entre " + item["value1"].InnerText + " e " + item["value2"].InnerText + " -> Message: " + item["message"].InnerText + Environment.NewLine);
                         });
-                        //sendData(molecule, arrParts[1], arrParts[2], arrParts[3], arrParts[4]);
+                        sendData(molecule, arrParts[1], arrParts[2], arrParts[3], arrParts[4]);
                     }
                 }
             }
@@ -495,7 +497,7 @@ namespace AirMonit_Alarm
             string strMsgtoSend = buildXmlMessage(molecule, valor, time, local, msg);
 
             //Send
-            m_cClient.Publish(STR_CHANNEL_NAME, Encoding.UTF8.GetBytes(strMsgtoSend));
+            m_cClient.Publish(STR_CHANNEL_NAME1, Encoding.UTF8.GetBytes(strMsgtoSend));
             resetValues(molecule, valor, time, local, msg);
         }
 
