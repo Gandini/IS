@@ -17,6 +17,7 @@ using uPLibrary.Networking.M2Mqtt.Messages;
 namespace AirMonit_DLog
 {
     public partial class Form1 : Form
+       
     {
         MqttClient m_cClient = new MqttClient("127.0.0.1");
         const String STR_CHANNEL_NAME = "airValues";
@@ -61,23 +62,57 @@ namespace AirMonit_DLog
             //Recebe a mensagem e determina qual o tipo de molecula ao qual a informação corresponde
             String strTemp = Encoding.UTF8.GetString(e.Message);
             string[] arrParts = extractFieldsFromXmlstr(strTemp);
-            if(arrParts[1].Equals("O3", StringComparison.OrdinalIgnoreCase)){
-                Console.WriteLine("\n Insert O3 \n");
-                insertO3(arrParts);
-            }else
+            if (strTemp.Contains("Alarm"))
             {
-                if (arrParts[1].Equals("NO2", StringComparison.OrdinalIgnoreCase))
+                Console.WriteLine("\n Insert Alarm \n");
+                insertAlarm(arrParts);
+            }
+            else
+            {
+                if (arrParts[0].Equals("O3", StringComparison.OrdinalIgnoreCase))
                 {
-                    Console.WriteLine("\n Insert NO2 \n");
-                    insertNO2(arrParts);
-                }else
-                {
-                    if (arrParts[1].Equals("CO", StringComparison.OrdinalIgnoreCase))
-                    {
-                        Console.WriteLine("\n Insert CO \n");
-                        insertCO(arrParts);
-                    }
+                    Console.WriteLine("\n Insert O3 \n");
+                    insertO3(arrParts);
                 }
+                else
+                {
+                    if (arrParts[0].Equals("NO2", StringComparison.OrdinalIgnoreCase))
+                    {
+                        Console.WriteLine("\n Insert NO2 \n");
+                        insertNO2(arrParts);
+                    }
+                    else
+                    {
+                        if (arrParts[0].Equals("CO", StringComparison.OrdinalIgnoreCase))
+                        {
+                            Console.WriteLine("\n Insert CO \n");
+                            insertCO(arrParts);
+                        }
+                    }
+
+                }
+            }
+
+        }
+
+        private void insertAlarm(string[] arrParts)
+        {
+            // DB Insert into Table Alarm
+            string queryString = "INSERT INTO Alarm(molecule, value ,local, , errorMessage) VALUES(@value, @date, @local)";
+            SqlCommand cmd = new SqlCommand(queryString, con);
+
+            cmd.Parameters.AddWithValue("@value", arrParts[1]);
+            cmd.Parameters.AddWithValue("@date", arrParts[2]);
+            cmd.Parameters.AddWithValue("@local", arrParts[3]);
+            cmd.Parameters.AddWithValue("@errorMessage", arrParts[4]);
+            con.Open();
+            int i = cmd.ExecuteNonQuery();
+
+            con.Close();
+
+            if (i != 0)
+            {
+                Console.WriteLine("\nAlarm Insert Success");
             }
 
         }
@@ -88,9 +123,9 @@ namespace AirMonit_DLog
             string queryString = "INSERT INTO NO2(value, date, local) VALUES(@value, @date, @local)";
             SqlCommand cmd = new SqlCommand(queryString, con);
 
-            cmd.Parameters.AddWithValue("@value", arrParts[2]);
-            cmd.Parameters.AddWithValue("@date", arrParts[3]);
-            cmd.Parameters.AddWithValue("@local", arrParts[4]);
+            cmd.Parameters.AddWithValue("@value", arrParts[1]);
+            cmd.Parameters.AddWithValue("@date", arrParts[2]);
+            cmd.Parameters.AddWithValue("@local", arrParts[3]);
             con.Open();
             int i = cmd.ExecuteNonQuery();
 
@@ -108,9 +143,9 @@ namespace AirMonit_DLog
             // DB Insert into Table CO
             string queryString = "INSERT INTO CO(value, date, local) VALUES(@value, @date, @local)";
             SqlCommand cmd = new SqlCommand(queryString, con);
-            cmd.Parameters.AddWithValue("@value", arrParts[2]);
-            cmd.Parameters.AddWithValue("@date", arrParts[3]);
-            cmd.Parameters.AddWithValue("@local", arrParts[4]);
+            cmd.Parameters.AddWithValue("@value", arrParts[1]);
+            cmd.Parameters.AddWithValue("@date", arrParts[2]);
+            cmd.Parameters.AddWithValue("@local", arrParts[3]);
             con.Open();
             int i = cmd.ExecuteNonQuery();
 
@@ -127,9 +162,9 @@ namespace AirMonit_DLog
             // DB Insert into Table O3
             string queryString = "INSERT INTO O3(value, date, local) VALUES(@value, @date, @local)";
             SqlCommand cmd = new SqlCommand(queryString, con);
-            cmd.Parameters.AddWithValue("@value", arrParts[2]);
-            cmd.Parameters.AddWithValue("@date", arrParts[3]);
-            cmd.Parameters.AddWithValue("@local", arrParts[4]);
+            cmd.Parameters.AddWithValue("@value", arrParts[1]);
+            cmd.Parameters.AddWithValue("@date", arrParts[2]);
+            cmd.Parameters.AddWithValue("@local", arrParts[3]);
             con.Open();
             int i = cmd.ExecuteNonQuery();
 
@@ -146,22 +181,49 @@ namespace AirMonit_DLog
         {
 
             //Separa os valores do XML num array para ser manipulado mais facilmente
-            String[] messageReceived = new string[5];
+            
+            String[] messageReceived = new string[4];
 
-            XmlDocument doc = new XmlDocument();
-            doc.LoadXml(strTemp);
+            if (strTemp.Contains("Alarm"))
+            {
+                messageReceived = extractFieldsFromXmlAlarm(strTemp);
+            }
+            else
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.LoadXml(strTemp);
 
+                messageReceived[0] = doc.SelectSingleNode("/Airmessage/molecule").InnerText;
+                messageReceived[1] = doc.SelectSingleNode("/Airmessage/value").InnerText;
+                messageReceived[2] = doc.SelectSingleNode("/Airmessage/time").InnerText;
+                messageReceived[3] = doc.SelectSingleNode("/Airmessage/local").InnerText;
+            }
 
-            messageReceived[0] = doc.SelectSingleNode("/Airmessage/id").InnerText;
-            messageReceived[1] = doc.SelectSingleNode("/Airmessage/molecule").InnerText;
-            messageReceived[2] = doc.SelectSingleNode("/Airmessage/value").InnerText;
-            messageReceived[3] = doc.SelectSingleNode("/Airmessage/time").InnerText;
-            messageReceived[4] = doc.SelectSingleNode("/Airmessage/location").InnerText;
 
 
             return messageReceived;
         }
 
+        private string[] extractFieldsFromXmlAlarm(string strTemp)
+        {
+
+            //Separa os valores do XML num array para ser manipulado mais facilmente
+
+            String[] messageReceived = new string[5];
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(strTemp);
+
+            messageReceived[0] = doc.SelectSingleNode("/Airmessage/molecule").InnerText;
+            messageReceived[1] = doc.SelectSingleNode("/Airmessage/value").InnerText;
+            messageReceived[2] = doc.SelectSingleNode("/Airmessage/time").InnerText;
+            messageReceived[3] = doc.SelectSingleNode("/Airmessage/local").InnerText;
+            messageReceived[4] = doc.SelectSingleNode("/Airmessage/errorMessage").InnerText;
+
+
+
+            return messageReceived;
+        }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (m_cClient.IsConnected)

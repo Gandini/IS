@@ -26,7 +26,7 @@ namespace AirMonit_DU
         public Form1()
         {
             Connect();
-            dll.Initialize(dllStarted, 100);
+            dll.Initialize(dllStarted, 300);
 
         }
 
@@ -60,22 +60,18 @@ namespace AirMonit_DU
         {
             //Prepara string para ser lançada no Communication Channel
 
-            string strMsgtoSend = buildXmlMessage(values[0], values[1], values[2], values[3], values[4]);
+            string strMsgtoSend = buildXmlMessage(values[1], values[2], values[3], values[4]);
 
             //Send
             m_cClient.Publish(STR_CHANNEL_NAME, Encoding.UTF8.GetBytes(strMsgtoSend));
             resetValues();
         }
 
-        private string buildXmlMessage(string t_id,string t_molecule, string t_value, string t_time, string t_local)
+        private string buildXmlMessage(string t_molecule, string t_value, string t_time, string t_local)
         {
             //Estrutura da string XML
             XmlDocument doc = new XmlDocument();
             XmlNode root = doc.CreateElement("Airmessage");
-
-            XmlNode id = doc.CreateElement("id");
-            id.InnerText = t_id;
-            root.AppendChild(id);
 
             XmlNode mol = doc.CreateElement("molecule");
             mol.InnerText = t_molecule;
@@ -89,7 +85,7 @@ namespace AirMonit_DU
             time.InnerText = t_time;
             root.AppendChild(time);
 
-            XmlNode location = doc.CreateElement("location");
+            XmlNode location = doc.CreateElement("local");
             location.InnerText = t_local;
             root.AppendChild(location);
 
