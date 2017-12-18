@@ -13,12 +13,10 @@ namespace AirMonit_Service.Controllers
     {
         private string CONNSTRING = System.Configuration.ConfigurationManager.ConnectionStrings["AirMonit_Service.Properties.Settings.DBConn"].ConnectionString;
 
-        //TODO:
-        // /api/{city}/alarms
-        // /api/{city}/alarms/{startDate}/{endDate}
+      
 
         [Route("api/{local}/alarms")]
-        public IEnumerable<Alarm> Get()
+        public IEnumerable<Alarm> Get(string local)
         {
             List<Alarm> lista = new List<Alarm>();
             SqlConnection conn = new SqlConnection(CONNSTRING);
@@ -28,7 +26,13 @@ namespace AirMonit_Service.Controllers
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "SELECT * FROM Alarm";
+
+             if (local == "All") { 
+                 cmd.CommandText = "SELECT * FROM Alarm";
+            }else{
+                    cmd.CommandText = "SELECT * FROM Alarm where local=@local";
+                    cmd.Parameters.AddWithValue("@local", local);
+                }
                 cmd.Connection = conn;
 
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -63,8 +67,8 @@ namespace AirMonit_Service.Controllers
             return lista;
         }
 
-        [Route("api/{city}/alarms/{startDate}/{endDate}")]
-        public IEnumerable<Alarm> GetBetween(string startDate, string endDate)
+        [Route("api/{local}/alarms/{startDate}/{endDate}")]
+        public IEnumerable<Alarm> GetBetween(string startDate, string endDate, string local)
         {
             List<Alarm> lista = new List<Alarm>();
             SqlConnection conn = new SqlConnection(CONNSTRING);
@@ -74,10 +78,21 @@ namespace AirMonit_Service.Controllers
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "SELECT * FROM Alarm WHERE startDate >= @startDate AND endDate <= @endDate";
-                cmd.Parameters.AddWithValue("@startDate", startDate);
-                cmd.Parameters.AddWithValue("@endDate", endDate);
 
+                if (local == "All") {
+
+                    cmd.CommandText = "SELECT * FROM Alarm WHERE startDate >= @startDate AND endDate <= @endDate";
+                    cmd.Parameters.AddWithValue("@startDate", startDate + "T00:00:00.000");
+                    cmd.Parameters.AddWithValue("@endDate", endDate + "T23:59:59.000");
+                    
+                }
+                else
+                {
+                    cmd.CommandText = "SELECT * FROM Alarm WHERE startDate >= @startDate AND endDate <= @endDate and local = @local";
+                    cmd.Parameters.AddWithValue("@startDate", startDate + "T00:00:00.000");
+                    cmd.Parameters.AddWithValue("@endDate", endDate + "T23:59:59.000");
+                    cmd.Parameters.AddWithValue("@local", local);
+                }
                 cmd.Connection = conn;
 
                 SqlDataReader reader = cmd.ExecuteReader();

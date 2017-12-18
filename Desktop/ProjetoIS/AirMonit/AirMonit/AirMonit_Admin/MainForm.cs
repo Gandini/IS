@@ -79,7 +79,6 @@ namespace AirMonit_Admin
 
 
             //sensores
-            listBoxSensors.Items.Clear();
             HttpWebRequest requestSensors = WebRequest.Create(@"http://localhost:52643/api/" + listBoxCidades.SelectedItem.ToString() + "/sensors") as HttpWebRequest;
             requestSensors.ContentType = "application/json";
             HttpWebResponse responseSensors = requestSensors.GetResponse() as HttpWebResponse;
