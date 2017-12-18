@@ -24,9 +24,9 @@ namespace AirMonit_Service.Controllers
                 if (e != null)
                 {
                     string userId = e.userId;
-                    string Uncommon_event_description = e.Uncommon_event_description;
-                    int Temperature_in_celcius_degrees = e.Temperature_in_celcius_degrees;
-                    string airQual = e.airQual;
+                    string event_description = e.event_description;
+                    int temperature = e.temperature;
+                    string air_quality = e.air_quality;
                     int value = e.value;
                     string City_name = e.City_name;
                     DateTime date = e.date;
@@ -35,16 +35,16 @@ namespace AirMonit_Service.Controllers
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand();
-                    cmd.CommandText = "INSERT INTO Event(userId,Uncommon_event_description,Temperature_in_celcius_degrees,airQual,value,City_name,date) VALUES(@userId,@Uncommon_event_description,@Temperature_in_celcius_degrees,@airQual,@value,@City_name,@date)";
+                    cmd.CommandText = "INSERT INTO Event(userId,event_description,temperature,air_quality,value,City_name,date) VALUES(@userId,@event_description,@temperature,@air_quality,@value,@City_name,@date)";
 
 
                     cmd.Parameters.AddWithValue("@userId", userId);
-                    cmd.Parameters.AddWithValue("@Uncommon_event_description", Uncommon_event_description);
-                    cmd.Parameters.AddWithValue("@Temperature_in_celcius_degrees", Temperature_in_celcius_degrees);
+                    cmd.Parameters.AddWithValue("@event_description", event_description);
+                    cmd.Parameters.AddWithValue("@temperature", temperature);
                     cmd.Parameters.AddWithValue("@value", value);
                     cmd.Parameters.AddWithValue("@City_name", City_name);
                     cmd.Parameters.AddWithValue("@date", date);
-                    cmd.Parameters.AddWithValue("@airQual", airQual);
+                    cmd.Parameters.AddWithValue("@air_quality", air_quality);
                     cmd.Connection = conn;
 
                     int nRows = cmd.ExecuteNonQuery();
@@ -92,10 +92,10 @@ namespace AirMonit_Service.Controllers
                     n.value = (int)reader["value"];
                     n.date = (DateTime)reader["date"];
                     n.City_name = (string)reader["City_name"];
-                    n.Uncommon_event_description = (string)reader["Uncommon_event_description"];
-                    n.Temperature_in_celcius_degrees = (int)reader["Temperature_in_celcius_degrees"];
+                    n.event_description = (string)reader["event_description"];
+                    n.temperature = (int)reader["temperature"];
                     n.userId = (string)reader["userId"];
-                    n.airQual = (string)reader["airQual"];
+                    n.air_quality = (string)reader["air_quality"];
 
 
 
