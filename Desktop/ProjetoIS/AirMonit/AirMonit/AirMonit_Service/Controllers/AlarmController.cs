@@ -13,7 +13,7 @@ namespace AirMonit_Service.Controllers
     {
         private string CONNSTRING = System.Configuration.ConfigurationManager.ConnectionStrings["AirMonit_Service.Properties.Settings.DBConn"].ConnectionString;
 
-      
+
 
         [Route("api/{local}/alarms")]
         public IEnumerable<Alarm> Get(string local)
@@ -27,9 +27,12 @@ namespace AirMonit_Service.Controllers
 
                 SqlCommand cmd = new SqlCommand();
 
-             if (local == "All") { 
-                 cmd.CommandText = "SELECT * FROM Alarm";
-            }else{
+                if (local == "All")
+                {
+                    cmd.CommandText = "SELECT * FROM Alarm";
+                }
+                else
+                {
                     cmd.CommandText = "SELECT * FROM Alarm where local=@local";
                     cmd.Parameters.AddWithValue("@local", local);
                 }
@@ -79,12 +82,13 @@ namespace AirMonit_Service.Controllers
 
                 SqlCommand cmd = new SqlCommand();
 
-                if (local == "All") {
+                if (local == "All")
+                {
 
                     cmd.CommandText = "SELECT * FROM Alarm WHERE startDate >= @startDate AND endDate <= @endDate";
                     cmd.Parameters.AddWithValue("@startDate", startDate + "T00:00:00.000");
                     cmd.Parameters.AddWithValue("@endDate", endDate + "T23:59:59.000");
-                    
+
                 }
                 else
                 {
