@@ -10,7 +10,7 @@ namespace AirMonit_Service.Models
         public int min { get; set; }
         public int max { get; set; }
         public int avg { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime date { get; set; }
         public string local { get; set; }
 
     }

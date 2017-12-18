@@ -8,7 +8,6 @@ C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMon
 C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.pdb
 C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.csprojResolveAssemblyReference.cache
 C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.MainForm.resources
-C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.Statistics.resources
 C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\bin\Debug\Newtonsoft.Json.dll
 C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\bin\Debug\Newtonsoft.Json.xml
 C:\Users\leona\Desktop\IS_Proj\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\bin\Debug\AirMonit_Admin.exe.config
@@ -24,3 +23,4 @@ C:\Users\leona\Desktop\IS_Proj\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admi
 C:\Users\leona\Desktop\IS_Proj\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.csproj.CoreCompileInputs.cache
 C:\Users\leona\Desktop\IS_Proj\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.exe
 C:\Users\leona\Desktop\IS_Proj\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.pdb
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.StatisticsForm.resources

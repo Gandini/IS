@@ -39,9 +39,9 @@ namespace AirMonit_Admin
             chartCO.Legends["Media"].IsDockedInsideChartArea = true;
             for (int i = 0; i < 7; i++)
             {
-                chartCO.Series["Average"].Points.Add().SetValueXY(valoresCO[i].Date.Day, Math.Round((decimal)valoresCO[i].avg, 2));
-                chartCO.Series["Minimum"].Points.Add().SetValueXY(valoresCO[i].Date.Day, Math.Round((decimal)valoresCO[i].min, 2));
-                chartCO.Series["Maximum"].Points.Add().SetValueXY(valoresCO[i].Date.Day, Math.Round((decimal)valoresCO[i].max, 2));
+                chartCO.Series["Average"].Points.Add().SetValueXY(valoresCO[i].date.Day, Math.Round((decimal)valoresCO[i].avg, 2));
+                chartCO.Series["Minimum"].Points.Add().SetValueXY(valoresCO[i].date.Day, Math.Round((decimal)valoresCO[i].min, 2));
+                chartCO.Series["Maximum"].Points.Add().SetValueXY(valoresCO[i].date.Day, Math.Round((decimal)valoresCO[i].max, 2));
             }
 
             float maximum = 0;
