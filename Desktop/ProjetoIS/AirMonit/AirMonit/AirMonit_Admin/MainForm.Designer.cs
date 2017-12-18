@@ -40,11 +40,12 @@
             this.listBoxAlarms = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_sensorData = new System.Windows.Forms.Button();
             this.listBoxSensors = new System.Windows.Forms.ListBox();
             this.dtp_sensorData = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_sensorData = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lbltestes = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -106,6 +107,7 @@
             // chkBoxFilterDate
             // 
             this.chkBoxFilterDate.AutoSize = true;
+            this.chkBoxFilterDate.Enabled = false;
             this.chkBoxFilterDate.Location = new System.Drawing.Point(793, 406);
             this.chkBoxFilterDate.Name = "chkBoxFilterDate";
             this.chkBoxFilterDate.Size = new System.Drawing.Size(169, 29);
@@ -179,6 +181,17 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sensors";
             // 
+            // btn_sensorData
+            // 
+            this.btn_sensorData.Enabled = false;
+            this.btn_sensorData.Location = new System.Drawing.Point(375, 402);
+            this.btn_sensorData.Name = "btn_sensorData";
+            this.btn_sensorData.Size = new System.Drawing.Size(201, 41);
+            this.btn_sensorData.TabIndex = 20;
+            this.btn_sensorData.Text = "Get sensor data";
+            this.btn_sensorData.UseVisualStyleBackColor = true;
+            this.btn_sensorData.Click += new System.EventHandler(this.btn_sensorData_Click);
+            // 
             // listBoxSensors
             // 
             this.listBoxSensors.FormattingEnabled = true;
@@ -207,16 +220,6 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Date:";
             // 
-            // btn_sensorData
-            // 
-            this.btn_sensorData.Location = new System.Drawing.Point(375, 402);
-            this.btn_sensorData.Name = "btn_sensorData";
-            this.btn_sensorData.Size = new System.Drawing.Size(201, 41);
-            this.btn_sensorData.TabIndex = 20;
-            this.btn_sensorData.Text = "Get sensor data";
-            this.btn_sensorData.UseVisualStyleBackColor = true;
-            this.btn_sensorData.Click += new System.EventHandler(this.btn_sensorData_Click);
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.listViewEvents);
@@ -227,11 +230,21 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Uncommon Events";
             // 
+            // lbltestes
+            // 
+            this.lbltestes.AutoSize = true;
+            this.lbltestes.Location = new System.Drawing.Point(1279, 609);
+            this.lbltestes.Name = "lbltestes";
+            this.lbltestes.Size = new System.Drawing.Size(70, 25);
+            this.lbltestes.TabIndex = 23;
+            this.lbltestes.Text = "label4";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2389, 1009);
+            this.Controls.Add(this.lbltestes);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -247,6 +260,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -269,6 +283,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_sensorData;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label lbltestes;
     }
 }
 
