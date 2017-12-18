@@ -22,8 +22,8 @@ namespace AirMonit_DLog
         const String STR_CHANNEL_NAME = "airValues";
         const String STR_CHANNEL_NAME1 = "airAlarm";
         string[] m_strTopicsInfo = { STR_CHANNEL_NAME };
-        SqlConnection con = new SqlConnection(@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = AirDB; Integrated Security = True");
-        
+        //SqlConnection con = new SqlConnection(@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = AirDB; Integrated Security = True");
+        SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\projetoIS\Desktop\ProjetoIS\AirMonit\Base de dados\AirDB.mdf';Integrated Security = True");
 
         public Form1()
         {

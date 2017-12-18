@@ -9,3 +9,5 @@ C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMon
 C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.csprojResolveAssemblyReference.cache
 C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.MainForm.resources
 C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.Statistics.resources
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\bin\Debug\Newtonsoft.Json.dll
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\bin\Debug\Newtonsoft.Json.xml

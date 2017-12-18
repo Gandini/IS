@@ -32,3 +32,16 @@ C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DU\obj\Debug\AirMoni
 C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DU\obj\Debug\AirMonit_DU.Form1.resources
 C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DU\obj\Debug\SmartAir.Properties.Resources.resources
 C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DU\obj\Debug\AirMonit_DU.csproj.GenerateResource.Cache
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DU\bin\Debug\SmartAir.exe.config
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DU\bin\Debug\SmartAir.exe
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DU\bin\Debug\SmartAir.pdb
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DU\bin\Debug\Newtonsoft.Json.dll
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DU\bin\Debug\M2Mqtt.Net.pdb
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DU\bin\Debug\Newtonsoft.Json.xml
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DU\obj\Debug\AirMonit_DU.csprojResolveAssemblyReference.cache
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DU\obj\Debug\AirMonit_DU.Form1.resources
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DU\obj\Debug\SmartAir.Properties.Resources.resources
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DU\obj\Debug\AirMonit_DU.csproj.GenerateResource.Cache
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DU\obj\Debug\AirMonit_DU.csproj.CoreCompileInputs.cache
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DU\obj\Debug\SmartAir.exe
+C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DU\obj\Debug\SmartAir.pdb

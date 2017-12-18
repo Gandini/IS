@@ -13,6 +13,7 @@ namespace AirMonit_Service.Controllers
     {
         private string CONNSTRING = System.Configuration.ConfigurationManager.ConnectionStrings["AirMonit_Service.Properties.Settings.ConnString"].ConnectionString;
 
+        [Route("api/o3")]
         public IEnumerable<O3> Get()
         {
             List<O3> lista = new List<O3>();

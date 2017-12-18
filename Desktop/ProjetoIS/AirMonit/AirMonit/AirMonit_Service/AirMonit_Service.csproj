@@ -213,6 +213,7 @@
     <Compile Include="Controllers\COController.cs" />
     <Compile Include="Controllers\NOController.cs" />
     <Compile Include="Controllers\O3Controller.cs" />
+    <Compile Include="Controllers\SensorValueController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -228,6 +229,7 @@
     <Compile Include="Models\CO.cs" />
     <Compile Include="Models\NO.cs" />
     <Compile Include="Models\O3.cs" />
+    <Compile Include="Models\SensorValue.cs" />
     <Compile Include="Models\Statistics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

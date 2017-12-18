@@ -13,6 +13,7 @@ namespace AirMonit_Service.Controllers
     {
         private string CONNSTRING = System.Configuration.ConfigurationManager.ConnectionStrings["AirMonit_Service.Properties.Settings.ConnString"].ConnectionString;
 
+        [Route("api/no")]
         public IEnumerable<NO> Get()
         {
             List<NO> lista = new List<NO>();
@@ -23,7 +24,7 @@ namespace AirMonit_Service.Controllers
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "SELECT * FROM NO";
+                cmd.CommandText = "SELECT * FROM NO2";
                 cmd.Connection = conn;
 
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -42,9 +43,9 @@ namespace AirMonit_Service.Controllers
                 conn.Close();
                 reader.Close();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                throw e;
 
             }
             finally
@@ -58,6 +59,5 @@ namespace AirMonit_Service.Controllers
             return lista;
         }
     }
-
 
 }
