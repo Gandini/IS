@@ -17,7 +17,7 @@ namespace AirMonit_Service.Controllers
         // /api/{city}/alarms
         // /api/{city}/alarms/{startDate}/{endDate}
 
-        [Route("api/alarms")]
+        [Route("api/{local}/alarms")]
         public IEnumerable<Alarm> Get()
         {
             List<Alarm> lista = new List<Alarm>();
