@@ -1,10 +1,12 @@
-﻿using System;
+﻿using AirSensorNodeDll;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
@@ -16,14 +18,11 @@ namespace AirMonit_Alarm
 {
     public partial class Form1 : Form
     {
-        string[] topico = { "sensors" };
+        AirSensorNodeDll.AirSensorNodeDll dll = new AirSensorNodeDll.AirSensorNodeDll();
         MqttClient m_cClient = new MqttClient("127.0.0.1");
 
         const String STR_CHANNEL_NAME = "airValues";
         string[] m_strTopicsInfo = { STR_CHANNEL_NAME };
-
-        const String STR_CHANNEL_NAME_ALARM = "airAlarm";
-        string[] m_strTopicsInfoAlarm = { STR_CHANNEL_NAME_ALARM };
 
         bool trigger = false;
 
@@ -282,7 +281,6 @@ namespace AirMonit_Alarm
             XmlElement newMessage = doc.CreateElement("message");
             newMessage.InnerText = txtmessage;
             
-
             newCondition.AppendChild(newState);
             newCondition.AppendChild(newMolecule);
             newCondition.AppendChild(newOperador);
@@ -396,15 +394,16 @@ namespace AirMonit_Alarm
             {
                 if (item["operador"].InnerText == "equal")
                 {
-                    MessageBox.Show(molecule + item["operador"].InnerText);
+                    MessageBox.Show(arrParts[6]);
                     if (item["value1"].InnerText == arrParts[1])
                     {
                         trigger = true;
-                        //arrParts[4] = "Alarm: " + molecule + " é igual a " + item["value1"].InnerText + "! Message: " + item["message"].InnerText + "\n";
+                        arrParts[4] = "Alarm: " + molecule + " é igual a " + item["value1"].InnerText + "! Message: " + item["message"].InnerText + "\n";
                         this.Invoke((MethodInvoker)delegate
                         {
                             richTextBoxAlarmes.AppendText("Alarm: " + molecule + " igual a " + item["value1"].InnerText + " -> Message: " + item["message"].InnerText + Environment.NewLine);
                         });
+                        //sendData(molecule, arrParts[1], arrParts[2], arrParts[3], arrParts[4]);
                     }
                 }
                 else if (item["operador"].InnerText == "bigger")
@@ -412,11 +411,12 @@ namespace AirMonit_Alarm
                     if (Int32.Parse(arrParts[1]) > Int32.Parse(item["value1"].InnerText))
                     {
                         trigger = true;
-                        //arrParts[4] = "Alarm: " + molecule + " é maior que " + item["value1"].InnerText + "! Message: " + item["message"].InnerText + "\n";
+                        arrParts[4] = "Alarm: " + molecule + " é maior que " + item["value1"].InnerText + "! Message: " + item["message"].InnerText + "\n";
                         this.Invoke((MethodInvoker)delegate
                         {
                             richTextBoxAlarmes.AppendText("Alarm: " + molecule + " maior que " + item["value1"].InnerText + " -> Message: " + item["message"].InnerText + Environment.NewLine);
                         });
+                        //sendData(molecule, arrParts[1], arrParts[2], arrParts[3], arrParts[4]);
                     }
                 }
                 else if (item["operador"].InnerText == "smaller")
@@ -424,11 +424,12 @@ namespace AirMonit_Alarm
                     if (Int32.Parse(arrParts[1]) < Int32.Parse(item["value1"].InnerText))
                     {
                         trigger = true;
-                        //arrParts[4] = "Alarm: " + molecule + " é menor que " + item["value1"].InnerText + "! Message: " + item["message"].InnerText + "\n";
+                        arrParts[4] = "Alarm: " + molecule + " é menor que " + item["value1"].InnerText + "! Message: " + item["message"].InnerText + "\n";
                         this.Invoke((MethodInvoker)delegate
                         {
                             richTextBoxAlarmes.AppendText("Alarm: " + molecule + " menor que " + item["value1"].InnerText + " -> Message: " + item["message"].InnerText + Environment.NewLine);
                         });
+                        //sendData(molecule, arrParts[1], arrParts[2], arrParts[3], arrParts[4]);
                     }
                 }
                 else if (item["operador"].InnerText == "between")
@@ -436,15 +437,15 @@ namespace AirMonit_Alarm
                     if (Int32.Parse(arrParts[1]) > Int32.Parse(item["value1"].InnerText) && Int32.Parse(arrParts[1]) < Int32.Parse(item["value2"].InnerText))
                     {
                         trigger = true;
-                        //arrParts[4] = "Alarm: " + molecule + " está entre " + item["value1"].InnerText + " e " + item["value2"].InnerText + "! Message: " + item["message"].InnerText + "\n";
+                        arrParts[4] = "Alarm: " + molecule + " está entre " + item["value1"].InnerText + " e " + item["value2"].InnerText + "! Message: " + item["message"].InnerText + "\n";
                         this.Invoke((MethodInvoker)delegate
                         {
                             richTextBoxAlarmes.AppendText("Alarm: " + molecule + " entre " + item["value1"].InnerText + " e " + item["value2"].InnerText + " -> Message: " + item["message"].InnerText + Environment.NewLine);
                         });
+                        //sendData(molecule, arrParts[1], arrParts[2], arrParts[3], arrParts[4]);
                     }
                 }
             }
-            //m_cClient.Publish("airAlarm", Encoding.UTF8.GetBytes(richTextBoxAlarmes.Text));
         }
 
         private string[] extractFieldsFromXmlstr(string strTemp)
@@ -459,7 +460,6 @@ namespace AirMonit_Alarm
             messageReceived[1] = doc.SelectSingleNode("/Airmessage/value").InnerText;
             messageReceived[2] = doc.SelectSingleNode("/Airmessage/time").InnerText;
             messageReceived[3] = doc.SelectSingleNode("/Airmessage/location").InnerText;
-            //messageReceived[4] = doc.SelectSingleNode("/Airmessage/errorMessage").InnerText;
 
             return messageReceived;
         }
@@ -487,5 +487,62 @@ namespace AirMonit_Alarm
         {
             richTextBoxAlarmes.ScrollToCaret();
         }
+
+        private void sendData(string molecule, string valor, string time, string local, string msg)
+        {
+            // Prepara string para ser lançada no Communication Channel
+
+            string strMsgtoSend = buildXmlMessage(molecule, valor, time, local, msg);
+
+            //Send
+            m_cClient.Publish(STR_CHANNEL_NAME, Encoding.UTF8.GetBytes(strMsgtoSend));
+            resetValues(molecule, valor, time, local, msg);
+        }
+
+        private string buildXmlMessage(string t_molecule, string t_value, string t_time, string t_local, string t_error)
+        {
+            //Estrutura da string XML
+            XmlDocument doc = new XmlDocument();
+            XmlNode root = doc.CreateElement("Airmessage");
+
+            XmlNode mol = doc.CreateElement("molecule");
+            mol.InnerText = t_molecule;
+            root.AppendChild(mol);
+
+            XmlNode value = doc.CreateElement("value");
+            value.InnerText = t_value;
+            root.AppendChild(value);
+
+            XmlNode time = doc.CreateElement("time");
+            time.InnerText = t_time;
+            root.AppendChild(time);
+
+            XmlNode location = doc.CreateElement("location");
+            location.InnerText = t_local;
+            root.AppendChild(location);
+
+            XmlNode error = doc.CreateElement("error");
+            location.InnerText = t_local;
+            root.AppendChild(location);
+
+            doc.AppendChild(root);
+
+            return doc.OuterXml;
+        }
+
+        private void resetValues(string molecule, string valor, string time, string local, string msg)
+        {
+            molecule = null;
+            valor = null;
+            time = null;
+            local = null;
+            msg = null;
+        }
+
+        /*private void regexValidation(string str)
+        {
+            valuesAlarmes = Regex.Split(str, @"\;");
+        }*/
+    
     }
 }

@@ -54,3 +54,4 @@ C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMoni
 C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\obj\Debug\AirMonit_Alarm.csproj.CoreCompileInputs.cache
 C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\obj\Debug\AirMonit_Alarm.exe
 C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\obj\Debug\AirMonit_Alarm.pdb
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\bin\Debug\AirSensorNodeDll.dll
