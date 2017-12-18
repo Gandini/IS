@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <conditions>
   <condition>
+    <id>1</id>
     <state>ativado</state>
     <molecule>NO2</molecule>
     <operator>equal</operator>
@@ -9,6 +10,7 @@
     <message>Fine</message>
   </condition>
   <condition>
+    <id>2</id>
     <state>desativado</state>
     <molecule>CO</molecule>
     <operator>between</operator>
@@ -17,6 +19,7 @@
     <message>Not good</message>
   </condition>
   <condition>
+    <id>3</id>
     <state>ativado</state>
     <molecule>O3</molecule>
     <operator>bigger</operator>
