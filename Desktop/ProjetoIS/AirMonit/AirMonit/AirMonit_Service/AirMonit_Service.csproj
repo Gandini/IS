@@ -211,6 +211,7 @@
     </Compile>
     <Compile Include="Controllers\AlarmController.cs" />
     <Compile Include="Controllers\COController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\NOController.cs" />
     <Compile Include="Controllers\O3Controller.cs" />
     <Compile Include="Controllers\SensorValueController.cs" />

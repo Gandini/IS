@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -61,7 +60,7 @@ namespace AirMonit_Service.Controllers
         }
 
         [Route("api/{local}/CO/{date}")]
-        public IEnumerable<CO> GetSensorCityDate(string local, string date)
+        public IEnumerable<CO> GetSensorCityDate(string local, string date) //NOTA: date pode ser um Date e não um String? confirmar com grupo / ficheiro TODO
         {
             List<CO> lista = new List<CO>();
             SqlConnection conn = new SqlConnection(CONNSTRING);
@@ -71,19 +70,9 @@ namespace AirMonit_Service.Controllers
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand();
-                if (local == "All")
-                {
-                    cmd.CommandText = "SELECT * FROM CO WHERE date >= @date AND date <= @date";
-                }
-                else
-                {
-                    cmd.CommandText = "SELECT * FROM CO WHERE date >= @date AND date <= @dateEnd and local = @local";
-                }
-                string[] tempsplit = date.Split('-');
-                string joinstring = "-";
-                string newdate = tempsplit[2] + joinstring + tempsplit[1] + joinstring + tempsplit[0];
-                cmd.Parameters.AddWithValue("@date", newdate + "T00:00:00.000");
-                cmd.Parameters.AddWithValue("@dateEnd", newdate + "T23:59:59.000");
+                cmd.CommandText = "SELECT * FROM CO WHERE date >= @datw AND date <= @date and local = @local";
+                cmd.Parameters.AddWithValue("@date", date + "T00:00:00.000");
+                cmd.Parameters.AddWithValue("@date", date + "T23:59:59.000");
                 cmd.Parameters.AddWithValue("@local", local);
 
                 cmd.Connection = conn;
@@ -94,7 +83,7 @@ namespace AirMonit_Service.Controllers
                 {
                     CO n = new CO();
                     n.value = (int)reader["value"];
-                    
+                    n.date = (DateTime)reader["date"];
                     n.local = (string)reader["local"];
 
 
@@ -121,7 +110,7 @@ namespace AirMonit_Service.Controllers
         }
 
         [Route("api/{local}/CO")]
-        public IEnumerable<CO> GetSensorCity(string local)
+        public IEnumerable<CO> GetSensorCity(string local) //NOTA: date pode ser um Date e não um String? confirmar com grupo / ficheiro TODO
         {
             List<CO> lista = new List<CO>();
             SqlConnection conn = new SqlConnection(CONNSTRING);
@@ -131,14 +120,7 @@ namespace AirMonit_Service.Controllers
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand();
-                if (local == "All")
-                {
-                    cmd.CommandText = "SELECT * FROM CO";
-                }
-                else
-                {
-                    cmd.CommandText = "SELECT * FROM CO WHERE local = @local";
-                }
+                cmd.CommandText = "SELECT * FROM CO WHERE local = @local";
                 cmd.Parameters.AddWithValue("@local", local);
 
                 cmd.Connection = conn;

@@ -40,15 +40,10 @@
             this.listBoxAlarms = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.listBoxO3 = new System.Windows.Forms.ListBox();
-            this.listBoxNO2 = new System.Windows.Forms.ListBox();
-            this.btn_sensorData = new System.Windows.Forms.Button();
-            this.listBoxCO = new System.Windows.Forms.ListBox();
+            this.listBoxSensors = new System.Windows.Forms.ListBox();
             this.dtp_sensorData = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_sensorData = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -164,7 +159,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.chkBoxFilterDate);
-            this.groupBox1.Location = new System.Drawing.Point(1156, 498);
+            this.groupBox1.Location = new System.Drawing.Point(1298, 14);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1079, 462);
             this.groupBox1.TabIndex = 20;
@@ -173,90 +168,30 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.listBoxO3);
-            this.groupBox2.Controls.Add(this.listBoxNO2);
             this.groupBox2.Controls.Add(this.btn_sensorData);
-            this.groupBox2.Controls.Add(this.listBoxCO);
+            this.groupBox2.Controls.Add(this.listBoxSensors);
             this.groupBox2.Controls.Add(this.dtp_sensorData);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(595, 14);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1291, 508);
+            this.groupBox2.Size = new System.Drawing.Size(682, 462);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sensors";
             // 
-            // label6
+            // listBoxSensors
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(854, 35);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 25);
-            this.label6.TabIndex = 25;
-            this.label6.Text = "O3";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(432, 35);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 25);
-            this.label5.TabIndex = 24;
-            this.label5.Text = "NO2";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 35);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 25);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "CO";
-            // 
-            // listBoxO3
-            // 
-            this.listBoxO3.FormattingEnabled = true;
-            this.listBoxO3.ItemHeight = 25;
-            this.listBoxO3.Location = new System.Drawing.Point(859, 63);
-            this.listBoxO3.Name = "listBoxO3";
-            this.listBoxO3.Size = new System.Drawing.Size(416, 354);
-            this.listBoxO3.TabIndex = 22;
-            // 
-            // listBoxNO2
-            // 
-            this.listBoxNO2.FormattingEnabled = true;
-            this.listBoxNO2.ItemHeight = 25;
-            this.listBoxNO2.Location = new System.Drawing.Point(437, 63);
-            this.listBoxNO2.Name = "listBoxNO2";
-            this.listBoxNO2.Size = new System.Drawing.Size(408, 354);
-            this.listBoxNO2.TabIndex = 21;
-            // 
-            // btn_sensorData
-            // 
-            this.btn_sensorData.Location = new System.Drawing.Point(686, 427);
-            this.btn_sensorData.Name = "btn_sensorData";
-            this.btn_sensorData.Size = new System.Drawing.Size(201, 41);
-            this.btn_sensorData.TabIndex = 20;
-            this.btn_sensorData.Text = "Get sensor data";
-            this.btn_sensorData.UseVisualStyleBackColor = true;
-            this.btn_sensorData.Click += new System.EventHandler(this.btn_sensorData_Click);
-            // 
-            // listBoxCO
-            // 
-            this.listBoxCO.FormattingEnabled = true;
-            this.listBoxCO.ItemHeight = 25;
-            this.listBoxCO.Location = new System.Drawing.Point(15, 63);
-            this.listBoxCO.Name = "listBoxCO";
-            this.listBoxCO.Size = new System.Drawing.Size(407, 354);
-            this.listBoxCO.TabIndex = 19;
+            this.listBoxSensors.FormattingEnabled = true;
+            this.listBoxSensors.ItemHeight = 25;
+            this.listBoxSensors.Location = new System.Drawing.Point(26, 30);
+            this.listBoxSensors.Name = "listBoxSensors";
+            this.listBoxSensors.Size = new System.Drawing.Size(631, 354);
+            this.listBoxSensors.TabIndex = 19;
             // 
             // dtp_sensorData
             // 
             this.dtp_sensorData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_sensorData.Location = new System.Drawing.Point(470, 432);
+            this.dtp_sensorData.Location = new System.Drawing.Point(159, 407);
             this.dtp_sensorData.MaxDate = new System.DateTime(2050, 12, 31, 0, 0, 0, 0);
             this.dtp_sensorData.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
             this.dtp_sensorData.Name = "dtp_sensorData";
@@ -266,11 +201,21 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(401, 435);
+            this.label1.Location = new System.Drawing.Point(90, 410);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 25);
             this.label1.TabIndex = 6;
             this.label1.Text = "Date:";
+            // 
+            // btn_sensorData
+            // 
+            this.btn_sensorData.Location = new System.Drawing.Point(375, 402);
+            this.btn_sensorData.Name = "btn_sensorData";
+            this.btn_sensorData.Size = new System.Drawing.Size(201, 41);
+            this.btn_sensorData.TabIndex = 20;
+            this.btn_sensorData.Text = "Get sensor data";
+            this.btn_sensorData.UseVisualStyleBackColor = true;
+            this.btn_sensorData.Click += new System.EventHandler(this.btn_sensorData_Click);
             // 
             // groupBox3
             // 
@@ -286,10 +231,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2389, 1302);
+            this.ClientSize = new System.Drawing.Size(2389, 1009);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_listaCidades);
             this.Controls.Add(this.btnStatistics);
             this.Controls.Add(this.listBoxCidades);
@@ -319,16 +264,11 @@
         private System.Windows.Forms.ListBox listBoxAlarms;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ListBox listBoxCO;
+        private System.Windows.Forms.ListBox listBoxSensors;
         private System.Windows.Forms.DateTimePicker dtp_sensorData;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_sensorData;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox listBoxO3;
-        private System.Windows.Forms.ListBox listBoxNO2;
     }
 }
 

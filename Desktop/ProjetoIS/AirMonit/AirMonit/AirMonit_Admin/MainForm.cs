@@ -37,7 +37,7 @@ namespace AirMonit_Admin
 
             if (chkBoxFilterDate.Checked == true) //filtro por data ativo
             {
-                HttpWebRequest requestAlarms = WebRequest.Create(@"http://localhost:52643/api/" + listBoxCidades.SelectedItem.ToString() + "/alarms/" + dtp_startDate.Value.ToShortDateString().Replace("/", "-") + "/" + dtp_endDate.Value.ToShortDateString().Replace("/", "-")) as HttpWebRequest;
+                HttpWebRequest requestAlarms = WebRequest.Create(@"http://localhost:52643/api/" + listBoxCidades.SelectedItem.ToString() + "/alarms/" + dtp_startDate.ToString() + "/" + dtp_endDate.ToString()) as HttpWebRequest;
                 requestAlarms.ContentType = "application/json";
                 HttpWebResponse responseAlarms = requestAlarms.GetResponse() as HttpWebResponse;
                 string jsonAlarms = new StreamReader(responseAlarms.GetResponseStream()).ReadToEnd();
@@ -65,63 +65,32 @@ namespace AirMonit_Admin
 
         private void listBoxCidades_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBoxCidades.SelectedItem == null) return;
+            //listBoxCidades.Items.Clear();
+            //TODO: popular a lista de cidades com os dados do serviço
+
             listBoxAlarms.Items.Clear(); //usar listView ou listBox? Rever qnd houverem dados
             //TODO: popular a lista de alarmes com os dados do serviço
 
             listViewEvents.Items.Clear(); //usar listView ou listBox? Rever qnd houverem dados
                                           //TODO: popular a lista de eventos com os dados do serviço
 
-            
-            chkBoxFilterDate.Enabled = true;
-            btn_sensorData.Enabled = true;
-
             btnStatistics.Enabled = true;
             btnStatistics.Text = "Statistics for " + listBoxCidades.Text;
 
 
             //sensores
-            listBoxCO.Items.Clear();
-            HttpWebRequest requestCO = WebRequest.Create(@"http://localhost:52643/api/" + listBoxCidades.SelectedItem.ToString() + "/CO") as HttpWebRequest;
-            requestCO.ContentType = "application/json";
-            HttpWebResponse responseCO = requestCO.GetResponse() as HttpWebResponse;
-            string jsonCO = new StreamReader(responseCO.GetResponseStream()).ReadToEnd();
-            List<CO> valoresCO = JsonConvert.DeserializeObject<List<CO>>(jsonCO);
+            HttpWebRequest requestSensors = WebRequest.Create(@"http://localhost:52643/api/" + listBoxCidades.SelectedItem.ToString() + "/sensors") as HttpWebRequest;
+            requestSensors.ContentType = "application/json";
+            HttpWebResponse responseSensors = requestSensors.GetResponse() as HttpWebResponse;
+            string jsonSensors = new StreamReader(responseSensors.GetResponseStream()).ReadToEnd();
+            List<SensorValue> valoresSensors = JsonConvert.DeserializeObject<List<SensorValue>>(jsonSensors);
 
-            for (int i = 0; i < valoresCO.Count; i++)
+            for (int i = 0; i < valoresSensors.Count; i++)
             {
-                listBoxCO.Items.Add("City: " + valoresCO[i].local + "  Value: " + valoresCO[i].value + " Date: " + valoresCO[i].date);
+                listBoxSensors.Items.Add("City: " + valoresSensors[i].local + "  Value: " + valoresSensors[i].value + " Date: " + valoresSensors[i].date);
             }
-
-            listBoxNO2.Items.Clear();
-            HttpWebRequest requestNO2 = WebRequest.Create(@"http://localhost:52643/api/" + listBoxCidades.SelectedItem.ToString() + "/NO") as HttpWebRequest;
-            requestNO2.ContentType = "application/json";
-            HttpWebResponse responseNO2 = requestNO2.GetResponse() as HttpWebResponse;
-            string jsonNO2 = new StreamReader(responseNO2.GetResponseStream()).ReadToEnd();
-            List<NO> valoresNO2 = JsonConvert.DeserializeObject<List<NO>>(jsonNO2);
-
-            for (int i = 0; i < valoresNO2.Count; i++)
-            {
-                listBoxNO2.Items.Add("City: " + valoresNO2[i].local + "  Value: " + valoresNO2[i].value + " Date: " + valoresNO2[i].date);
-            }
-
-            listBoxO3.Items.Clear();
-            HttpWebRequest requestO3 = WebRequest.Create(@"http://localhost:52643/api/" + listBoxCidades.SelectedItem.ToString() + "/O3") as HttpWebRequest;
-            requestO3.ContentType = "application/json";
-            HttpWebResponse responseO3 = requestO3.GetResponse() as HttpWebResponse;
-            string jsonO3 = new StreamReader(responseO3.GetResponseStream()).ReadToEnd();
-            List<O3> valoresO3 = JsonConvert.DeserializeObject<List<O3>>(jsonO3);
-
-            for (int i = 0; i < valoresO3.Count; i++)
-            {
-                listBoxO3.Items.Add("City: " + valoresO3[i].local + "  Value: " + valoresO3[i].value + " Date: " + valoresO3[i].date);
-            }
-
-
-
 
             //alarmes
-            /*listBoxAlarms.Items.Clear();
             HttpWebRequest requestAlarms = WebRequest.Create(@"http://localhost:52643/api/" + listBoxCidades.SelectedItem.ToString() + "/alarms") as HttpWebRequest;
             requestAlarms.ContentType = "application/json";
             HttpWebResponse responseAlarms = requestAlarms.GetResponse() as HttpWebResponse;
@@ -131,7 +100,7 @@ namespace AirMonit_Admin
             for (int i = 0; i < valoresAlarms.Count; i++)
             {
                 listBoxAlarms.Items.Add("Molecule: " + valoresAlarms[i].molecule + "  Value: " + valoresAlarms[i].value + " Error Message: " + valoresAlarms[i].errorMessage);
-            }*/
+            }
 
             chkBoxFilterDate.Checked = false;
 
@@ -139,43 +108,19 @@ namespace AirMonit_Admin
 
         private void btn_sensorData_Click(object sender, EventArgs e)
         {
-            //   [Route("api/{local}/NO2/{date}")]
-            listBoxCO.Items.Clear();
-            HttpWebRequest requestCO = WebRequest.Create(@"http://localhost:52643/api/" + listBoxCidades.SelectedItem.ToString() + "/CO/" + dtp_sensorData.Value.ToShortDateString().Replace("/", "-")) as HttpWebRequest;
-            requestCO.ContentType = "application/json";
-            HttpWebResponse responseCO = requestCO.GetResponse() as HttpWebResponse;
-            string jsonCO = new StreamReader(responseCO.GetResponseStream()).ReadToEnd();
-            List<CO> valoresCO = JsonConvert.DeserializeObject<List<CO>>(jsonCO);
+            //  [Route("api/O3/date/{date}/local/{local}")]
+            DateTime date = dtp_sensorData.Value; //valor correto?
+            HttpWebRequest request = WebRequest.Create(@"http://localhost:52643/api/city/" + listBoxCidades.SelectedItem.ToString() + "/" + date) as HttpWebRequest;
+            request.ContentType = "application/json";
+            HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+            string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            List<Alarm> lista = JsonConvert.DeserializeObject<List<Alarm>>(json);
 
-            for (int i = 0; i < valoresCO.Count; i++)
+
+            for (int i = 0; i < lista.Count; i++)
             {
-                listBoxCO.Items.Add("City: " + valoresCO[i].local + "  Value: " + valoresCO[i].value + " Date: " + valoresCO[i].date);
+                listBoxSensors.Items.Add("Name: " + lista[i].molecule + "  Value: " + lista[i].value + " Date: " + lista[i].errorMessage);
             }
-
-            listBoxNO2.Items.Clear();
-            HttpWebRequest requestNO2 = WebRequest.Create(@"http://localhost:52643/api/" + listBoxCidades.SelectedItem.ToString() + "/NO2/" + dtp_sensorData.Value.ToShortDateString().Replace("/", "-")) as HttpWebRequest;
-            requestNO2.ContentType = "application/json";
-            HttpWebResponse responseNO2 = requestNO2.GetResponse() as HttpWebResponse;
-            string jsonNO2 = new StreamReader(responseNO2.GetResponseStream()).ReadToEnd();
-            List<NO> valoresNO2 = JsonConvert.DeserializeObject<List<NO>>(jsonNO2);
-
-            for (int i = 0; i < valoresNO2.Count; i++)
-            {
-                listBoxNO2.Items.Add("City: " + valoresNO2[i].local + "  Value: " + valoresNO2[i].value + " Date: " + valoresNO2[i].date);
-            }
-
-            listBoxO3.Items.Clear();
-            HttpWebRequest requestO3 = WebRequest.Create(@"http://localhost:52643/api/" + listBoxCidades.SelectedItem.ToString() + "/O3/" + dtp_sensorData.Value.ToShortDateString().Replace("/", "-")) as HttpWebRequest;
-            requestO3.ContentType = "application/json";
-            HttpWebResponse responseO3 = requestO3.GetResponse() as HttpWebResponse;
-            string jsonO3 = new StreamReader(responseO3.GetResponseStream()).ReadToEnd();
-            List<O3> valoresO3 = JsonConvert.DeserializeObject<List<O3>>(jsonO3);
-
-            for (int i = 0; i < valoresO3.Count; i++)
-            {
-                listBoxO3.Items.Add("City: " + valoresO3[i].local + "  Value: " + valoresO3[i].value + " Date: " + valoresO3[i].date);
-            }
-
         }
     }
 

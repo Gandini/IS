@@ -28,10 +28,7 @@ namespace AirMonit_Service.Controllers
                 {
                     
                     cmd.CommandText = "SELECT min(value) as min, max(value) as max, avg(value) as avg FROM O3 where convert(varchar(10), date, 121) = convert(varchar(10), @date, 121) and local = @local ";
-                    string[] tempsplit = date.Split('-');
-                    string joinstring = "-";
-                    string newdate = tempsplit[2] + joinstring + tempsplit[1] + joinstring + tempsplit[0];
-                    cmd.Parameters.AddWithValue("@date", newdate);
+                    cmd.Parameters.AddWithValue("@date", date);
                     cmd.Parameters.AddWithValue("@local", local);
                    
                 }
@@ -71,7 +68,7 @@ namespace AirMonit_Service.Controllers
             return lista;
         }
 
-        [Route("api/NO/date/{date}/local/{local}")]
+        [Route("api/NO2/date/{date}/local/{local}")]
         public IEnumerable<Statistics> GetNO(string date, string local)
         {
             List<Statistics> lista = new List<Statistics>();
@@ -86,10 +83,7 @@ namespace AirMonit_Service.Controllers
                 {
 
                     cmd.CommandText = "SELECT min(value) as min, max(value) as max, avg(value) as avg FROM NO2 where convert(varchar(10), date, 121) = convert(varchar(10), @date, 121) and local = @local ";
-                    string[] tempsplit = date.Split('-');
-                    string joinstring = "-";
-                    string newdate = tempsplit[2] + joinstring + tempsplit[1] + joinstring + tempsplit[0];
-                    cmd.Parameters.AddWithValue("@date", newdate);
+                    cmd.Parameters.AddWithValue("@date", date);
                     cmd.Parameters.AddWithValue("@local", local);
 
                 }
@@ -144,10 +138,7 @@ namespace AirMonit_Service.Controllers
                 {
 
                     cmd.CommandText = "SELECT min(value) as min, max(value) as max, avg(value) as avg FROM CO where convert(varchar(10), date, 121) = convert(varchar(10), @date, 121) and local = @local ";
-                    string[] tempsplit = date.Split('-');
-                    string joinstring = "-";
-                    string newdate = tempsplit[2] + joinstring + tempsplit[1] + joinstring + tempsplit[0];
-                    cmd.Parameters.AddWithValue("@date", newdate);
+                    cmd.Parameters.AddWithValue("@date", date);
                     cmd.Parameters.AddWithValue("@local", local);
 
                 }
