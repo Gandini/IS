@@ -109,7 +109,7 @@ namespace AirMonit_Service.Controllers
             return lista;
         }
 
-        [Route("api/{local}/NO")]
+        [Route("api/{local}/NO2")]
         public IEnumerable<NO> GetSensorCity(string local) //NOTA: date pode ser um Date e não um String? confirmar com grupo / ficheiro TODO
         {
             List<NO> lista = new List<NO>();

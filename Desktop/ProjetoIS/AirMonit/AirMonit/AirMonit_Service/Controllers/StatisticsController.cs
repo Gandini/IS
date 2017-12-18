@@ -68,7 +68,7 @@ namespace AirMonit_Service.Controllers
             return lista;
         }
 
-        [Route("api/NO/date/{date}/local/{local}")]
+        [Route("api/NO2/date/{date}/local/{local}")]
         public IEnumerable<Statistics> GetNO(string date, string local)
         {
             List<Statistics> lista = new List<Statistics>();
