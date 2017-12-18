@@ -27,7 +27,7 @@ namespace AirMonit_Service.Controllers
                 if (local != null)
                 {
                     
-                    cmd.CommandText = "SELECT min(value) as min, max(value) as max, avg(value) as avg FROM O3 where convert(varchar(10), date, 121) = convert(varchar(10), @date, 105) and local = @local ";
+                    cmd.CommandText = "SELECT min(value) as min, max(value) as max, avg(value) as avg FROM O3 where convert(varchar(10), date, 121) = convert(varchar(10), @date, 121) and local = @local ";
                     cmd.Parameters.AddWithValue("@date", date);
                     cmd.Parameters.AddWithValue("@local", local);
                    
@@ -82,7 +82,7 @@ namespace AirMonit_Service.Controllers
                 if (local != null)
                 {
 
-                    cmd.CommandText = "SELECT min(value) as min, max(value) as max, avg(value) as avg FROM NO where convert(varchar(10), date, 121) = convert(varchar(10), @date, 105) and local = @local ";
+                    cmd.CommandText = "SELECT min(value) as min, max(value) as max, avg(value) as avg FROM NO2 where convert(varchar(10), date, 121) = convert(varchar(10), @date, 121) and local = @local ";
                     cmd.Parameters.AddWithValue("@date", date);
                     cmd.Parameters.AddWithValue("@local", local);
 
@@ -137,7 +137,7 @@ namespace AirMonit_Service.Controllers
                 if (local != null)
                 {
 
-                    cmd.CommandText = "SELECT min(value) as min, max(value) as max, avg(value) as avg FROM CO where convert(varchar(10), date, 121) = convert(varchar(10), @date, 105) and local = @local ";
+                    cmd.CommandText = "SELECT min(value) as min, max(value) as max, avg(value) as avg FROM CO where convert(varchar(10), date, 121) = convert(varchar(10), @date, 121) and local = @local ";
                     cmd.Parameters.AddWithValue("@date", date);
                     cmd.Parameters.AddWithValue("@local", local);
 
