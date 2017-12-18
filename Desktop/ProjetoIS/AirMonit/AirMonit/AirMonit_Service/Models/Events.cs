@@ -5,14 +5,14 @@ using System.Web;
 
 namespace AirMonit_Service.Models
 {
-    public class Events
+    public class Event
     {
         public string userId { get; set; }
-        public string description { get; set; }
-        public int temp { get; set; }
+        public string Uncommon_event_description { get; set; }
+        public int Temperature_in_celcius_degrees { get; set; }
         public string airQual { get; set; }
         public int value { get; set; }
         public DateTime date { get; set; }
-        public string local { get; set; }
+        public string City_name  { get; set; }
     }
 }

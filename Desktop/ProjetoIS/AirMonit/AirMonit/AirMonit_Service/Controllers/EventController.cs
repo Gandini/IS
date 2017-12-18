@@ -14,7 +14,7 @@ namespace AirMonit_Service.Controllers
 
         private string CONNSTRING = System.Configuration.ConfigurationManager.ConnectionStrings["AirMonit_Service.Properties.Settings.DBConn"].ConnectionString;
 
-        public IHttpActionResult Post([FromBody]Events e)
+        public IHttpActionResult Post([FromBody]Event e)
         {
             SqlConnection conn = new SqlConnection(CONNSTRING);
 
@@ -24,25 +24,25 @@ namespace AirMonit_Service.Controllers
                 if (e != null)
                 {
                     string userId = e.userId;
-                    string description = e.description;
-                    int temp = e.temp;
+                    string Uncommon_event_description = e.Uncommon_event_description;
+                    int Temperature_in_celcius_degrees = e.Temperature_in_celcius_degrees;
                     string airQual = e.airQual;
                     int value = e.value;
-                    string local = e.local;
+                    string City_name = e.City_name;
                     DateTime date = e.date;
                     
 
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand();
-                    cmd.CommandText = "INSERT INTO Eventos(userId,description,temp,airQual,value,local,date) VALUES(@userId,@description,@temp,@airQual,@value,@local,@date)";
+                    cmd.CommandText = "INSERT INTO Event(userId,Uncommon_event_description,Temperature_in_celcius_degrees,airQual,value,City_name,date) VALUES(@userId,@Uncommon_event_description,@Temperature_in_celcius_degrees,@airQual,@value,@City_name,@date)";
 
 
                     cmd.Parameters.AddWithValue("@userId", userId);
-                    cmd.Parameters.AddWithValue("@description", description);
-                    cmd.Parameters.AddWithValue("@temp", temp);
+                    cmd.Parameters.AddWithValue("@Uncommon_event_description", Uncommon_event_description);
+                    cmd.Parameters.AddWithValue("@Temperature_in_celcius_degrees", Temperature_in_celcius_degrees);
                     cmd.Parameters.AddWithValue("@value", value);
-                    cmd.Parameters.AddWithValue("@local", local);
+                    cmd.Parameters.AddWithValue("@City_name", City_name);
                     cmd.Parameters.AddWithValue("@date", date);
                     cmd.Parameters.AddWithValue("@airQual", airQual);
                     cmd.Connection = conn;
@@ -70,10 +70,10 @@ namespace AirMonit_Service.Controllers
             }
         }
 
-        [Route("api/Events")]
-        public IEnumerable<Events> GetEvents()
+        [Route("api/Event")]
+        public IEnumerable<Event> GetEvent()
         {
-            List<Events> lista = new List<Events>();
+            List<Event> lista = new List<Event>();
             SqlConnection conn = new SqlConnection(CONNSTRING);
 
             try
@@ -81,19 +81,19 @@ namespace AirMonit_Service.Controllers
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "SELECT * FROM Eventos";
+                cmd.CommandText = "SELECT * FROM Event";
                 cmd.Connection = conn;
 
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    Events n = new Events();
+                    Event n = new Event();
                     n.value = (int)reader["value"];
                     n.date = (DateTime)reader["date"];
-                    n.local = (string)reader["local"];
-                    n.description = (string)reader["description"];
-                    n.temp = (int)reader["temp"];
+                    n.City_name = (string)reader["City_name"];
+                    n.Uncommon_event_description = (string)reader["Uncommon_event_description"];
+                    n.Temperature_in_celcius_degrees = (int)reader["Temperature_in_celcius_degrees"];
                     n.userId = (string)reader["userId"];
                     n.airQual = (string)reader["airQual"];
 
