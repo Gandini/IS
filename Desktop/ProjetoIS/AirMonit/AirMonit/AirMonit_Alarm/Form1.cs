@@ -18,8 +18,13 @@ namespace AirMonit_Alarm
     {
         string[] topico = { "sensors" };
         MqttClient m_cClient = new MqttClient("127.0.0.1");
+
         const String STR_CHANNEL_NAME = "airValues";
         string[] m_strTopicsInfo = { STR_CHANNEL_NAME };
+
+        const String STR_CHANNEL_NAME_ALARM = "airAlarm";
+        string[] m_strTopicsInfoAlarm = { STR_CHANNEL_NAME_ALARM };
+
         bool trigger = false;
 
         public Form1()
@@ -36,6 +41,15 @@ namespace AirMonit_Alarm
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_FormClosing(object sender, EventArgs e)
+        {
+            if (m_cClient.IsConnected)
+            {
+                m_cClient.Unsubscribe(m_strTopicsInfo);
+                m_cClient.Disconnect();
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -430,6 +444,7 @@ namespace AirMonit_Alarm
                     }
                 }
             }
+            //m_cClient.Publish("airAlarm", Encoding.UTF8.GetBytes(richTextBoxAlarmes.Text));
         }
 
         private string[] extractFieldsFromXmlstr(string strTemp)
@@ -461,6 +476,16 @@ namespace AirMonit_Alarm
         private void richTextBoxDadosSensor_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void richTextBoxDadosSensor_TextChanged_1(object sender, EventArgs e)
+        {
+            richTextBoxDadosSensor.ScrollToCaret();
+        }
+
+        private void richTextBoxAlarmes_TextChanged(object sender, EventArgs e)
+        {
+            richTextBoxAlarmes.ScrollToCaret();
         }
     }
 }

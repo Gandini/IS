@@ -408,6 +408,7 @@ namespace AirMonit_Alarm
             this.richTextBoxDadosSensor.Size = new System.Drawing.Size(318, 225);
             this.richTextBoxDadosSensor.TabIndex = 42;
             this.richTextBoxDadosSensor.Text = "";
+            this.richTextBoxDadosSensor.TextChanged += new System.EventHandler(this.richTextBoxDadosSensor_TextChanged_1);
             // 
             // richTextBoxAlarmes
             // 
@@ -416,6 +417,7 @@ namespace AirMonit_Alarm
             this.richTextBoxAlarmes.Size = new System.Drawing.Size(779, 140);
             this.richTextBoxAlarmes.TabIndex = 43;
             this.richTextBoxAlarmes.Text = "";
+            this.richTextBoxAlarmes.TextChanged += new System.EventHandler(this.richTextBoxAlarmes_TextChanged);
             // 
             // Form1
             // 

@@ -52,6 +52,7 @@ namespace AirMonit_DLog
 
                 byte[] qosLevels = { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE };//QoS
                 m_cClient.Subscribe(m_strTopicsInfo, qosLevels);
+               
             }
 
         }
