@@ -34,10 +34,10 @@ namespace AirMonit_Admin
         private void chkBoxFilterDate_CheckedChanged(object sender, EventArgs e)
         {
             listBoxAlarms.Items.Clear();
-            //lbltestes.Text= "Leiria" + "/alarms/" + dtp_startDate.Value.ToShortDateString().Replace("/","-") + "/" + dtp_endDate.Value.ToShortDateString().Replace("/", "-");
+
             if (chkBoxFilterDate.Checked == true) //filtro por data ativo
             {
-                HttpWebRequest requestAlarms = WebRequest.Create(@"http://localhost:52643/api/" + listBoxCidades.SelectedItem.ToString() + "/alarms/" + dtp_startDate.Value.ToShortDateString().Replace("/","-") + "/" + dtp_endDate.Value.ToShortDateString().Replace("/","-")) as HttpWebRequest;
+                HttpWebRequest requestAlarms = WebRequest.Create(@"http://localhost:52643/api/" + listBoxCidades.SelectedItem.ToString() + "/alarms/" + dtp_startDate.ToString() + "/" + dtp_endDate.ToString()) as HttpWebRequest;
                 requestAlarms.ContentType = "application/json";
                 HttpWebResponse responseAlarms = requestAlarms.GetResponse() as HttpWebResponse;
                 string jsonAlarms = new StreamReader(responseAlarms.GetResponseStream()).ReadToEnd();
@@ -74,9 +74,6 @@ namespace AirMonit_Admin
             listViewEvents.Items.Clear(); //usar listView ou listBox? Rever qnd houverem dados
                                           //TODO: popular a lista de eventos com os dados do serviço
 
-            chkBoxFilterDate.Enabled = true;
-            btn_sensorData.Enabled = true;
-
             btnStatistics.Enabled = true;
             btnStatistics.Text = "Statistics for " + listBoxCidades.Text;
 
@@ -96,7 +93,6 @@ namespace AirMonit_Admin
 
             //alarmes
             HttpWebRequest requestAlarms = WebRequest.Create(@"http://localhost:52643/api/" + listBoxCidades.SelectedItem.ToString() + "/alarms") as HttpWebRequest;
-            //HttpWebRequest requestAlarms = WebRequest.Create(@"http://localhost:52643/api/" + "" + "/alarms") as HttpWebRequest;
             requestAlarms.ContentType = "application/json";
             HttpWebResponse responseAlarms = requestAlarms.GetResponse() as HttpWebResponse;
             string jsonAlarms = new StreamReader(responseAlarms.GetResponseStream()).ReadToEnd();
