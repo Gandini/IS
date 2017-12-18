@@ -74,7 +74,7 @@ namespace AirMonit_Service.Controllers
                 conn.Open();
 
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "SELECT * FROM Alarm WHERE startDate >= startDate AND endDate <= endDate";
+                cmd.CommandText = "SELECT * FROM Alarm WHERE startDate >= @startDate AND endDate <= @endDate";
                 cmd.Parameters.AddWithValue("@startDate", startDate);
                 cmd.Parameters.AddWithValue("@endDate", endDate);
 
