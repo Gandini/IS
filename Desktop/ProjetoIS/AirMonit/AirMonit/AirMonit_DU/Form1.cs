@@ -26,7 +26,7 @@ namespace AirMonit_DU
         public Form1()
         {
             Connect();
-            dll.Initialize(dllStarted, 300);
+            dll.Initialize(dllStarted, 1000);
 
         }
 
