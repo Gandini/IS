@@ -13,10 +13,17 @@
     <Setting Name="DBConn" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+<<<<<<< HEAD
   &lt;ConnectionString&gt;Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="C:\projetoIS\Desktop\ProjetoIS\AirMonit\Base de dados\AirDB.mdf";Integrated Security=True;Connect Timeout=30&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="C:\projetoIS\Desktop\ProjetoIS\AirMonit\Base de dados\AirDB.mdf";Integrated Security=True;Connect Timeout=30</Value>
+=======
+  &lt;ConnectionString&gt;Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="C:\projIS_Entrega\AirDB.mdf";Integrated Security=True;Connect Timeout=30&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename="C:\projIS_Entrega\AirDB.mdf";Integrated Security=True;Connect Timeout=30</Value>
+>>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
     </Setting>
   </Settings>
 </SettingsFile>

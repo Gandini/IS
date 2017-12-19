@@ -26,11 +26,25 @@ namespace AirMonit_Service.Controllers
 
                 if (local != null)
                 {
+<<<<<<< HEAD
                     
                     cmd.CommandText = "SELECT min(value) as min, max(value) as max, avg(value) as avg FROM O3 where convert(varchar(10), date, 121) = convert(varchar(10), @date, 121) and local = @local ";
                     cmd.Parameters.AddWithValue("@date", date);
                     cmd.Parameters.AddWithValue("@local", local);
                    
+=======
+                    //cmd.CommandText = "SELECT min(value) as min, max(value) as max, avg(value) as avg FROM O3 where convert(varchar(10), date, 121) = convert(varchar(10), @date, 121) and local = @local ";
+                    cmd.CommandText = "select date = dateadd(hh, datepart(hh, date), cast(CAST(date as date) as datetime)), min(value) as min, max(value) as max, avg(value) as avg " +
+                                         "from O3 " +
+                                         "WHERE convert(varchar(10), date, 121) >= convert(varchar(10), @date, 121) AND convert(varchar(10), date, 121) <= convert(varchar(10), @dateEnd, 121) and local = @local " +
+                                         "group by dateadd(hh, datepart(hh, date), cast(CAST(date as date) as datetime))";
+                    string[] tempsplit = date.Split('-');
+                    string joinstring = "-";
+                    string newdate = tempsplit[2] + joinstring + tempsplit[1] + joinstring + tempsplit[0];
+                    cmd.Parameters.AddWithValue("@date", newdate + "T00:00:00.000");
+                    cmd.Parameters.AddWithValue("@dateEnd", newdate + "T23:59:59.000");
+                    cmd.Parameters.AddWithValue("@local", local);
+>>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
                 }
 
                 cmd.Connection = conn;
@@ -43,7 +57,11 @@ namespace AirMonit_Service.Controllers
                     n.max = (int)reader["max"];
                     n.avg = (int)reader["avg"];
                     n.date = (DateTime)reader["date"];
+<<<<<<< HEAD
                     n.local = (string)reader["local"];
+=======
+                    //n.local = (string)reader["local"];
+>>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
 
 
                     lista.Add(n);
@@ -81,11 +99,24 @@ namespace AirMonit_Service.Controllers
 
                 if (local != null)
                 {
+<<<<<<< HEAD
 
                     cmd.CommandText = "SELECT min(value) as min, max(value) as max, avg(value) as avg FROM NO2 where convert(varchar(10), date, 121) = convert(varchar(10), @date, 121) and local = @local ";
                     cmd.Parameters.AddWithValue("@date", date);
                     cmd.Parameters.AddWithValue("@local", local);
 
+=======
+                    cmd.CommandText = "select date = dateadd(hh, datepart(hh, date), cast(CAST(date as date) as datetime)), min(value) as min, max(value) as max, avg(value) as avg " +
+                                                             "from NO2 " +
+                                                             "WHERE convert(varchar(10), date, 121) >= convert(varchar(10), @date, 121) AND convert(varchar(10), date, 121) <= convert(varchar(10), @dateEnd, 121) and local = @local " +
+                                                             "group by dateadd(hh, datepart(hh, date), cast(CAST(date as date) as datetime))";
+                    string[] tempsplit = date.Split('-');
+                    string joinstring = "-";
+                    string newdate = tempsplit[2] + joinstring + tempsplit[1] + joinstring + tempsplit[0];
+                    cmd.Parameters.AddWithValue("@date", newdate + "T00:00:00.000");
+                    cmd.Parameters.AddWithValue("@dateEnd", newdate + "T23:59:59.000");
+                    cmd.Parameters.AddWithValue("@local", local);
+>>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
                 }
 
                 cmd.Connection = conn;
@@ -98,7 +129,11 @@ namespace AirMonit_Service.Controllers
                     n.max = (int)reader["max"];
                     n.avg = (int)reader["avg"];
                     n.date = (DateTime)reader["date"];
+<<<<<<< HEAD
                     n.local = (string)reader["local"];
+=======
+                    //n.local = (string)reader["local"];
+>>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
 
 
                     lista.Add(n);
@@ -136,11 +171,24 @@ namespace AirMonit_Service.Controllers
 
                 if (local != null)
                 {
+<<<<<<< HEAD
 
                     cmd.CommandText = "SELECT min(value) as min, max(value) as max, avg(value) as avg FROM CO where convert(varchar(10), date, 121) = convert(varchar(10), @date, 121) and local = @local ";
                     cmd.Parameters.AddWithValue("@date", date);
                     cmd.Parameters.AddWithValue("@local", local);
 
+=======
+                    cmd.CommandText = "select date = dateadd(hh, datepart(hh, date), cast(CAST(date as date) as datetime)), min(value) as min, max(value) as max, avg(value) as avg " +
+                                                             "from CO " +
+                                                             "WHERE convert(varchar(10), date, 121) >= convert(varchar(10), @date, 121) AND convert(varchar(10), date, 121) <= convert(varchar(10), @dateEnd, 121) and local = @local " +
+                                                             "group by dateadd(hh, datepart(hh, date), cast(CAST(date as date) as datetime))";
+                    string[] tempsplit = date.Split('-');
+                    string joinstring = "-";
+                    string newdate = tempsplit[2] + joinstring + tempsplit[1] + joinstring + tempsplit[0];
+                    cmd.Parameters.AddWithValue("@date", newdate + "T00:00:00.000");
+                    cmd.Parameters.AddWithValue("@dateEnd", newdate + "T23:59:59.000");
+                    cmd.Parameters.AddWithValue("@local", local);
+>>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
                 }
 
                 cmd.Connection = conn;
@@ -153,7 +201,11 @@ namespace AirMonit_Service.Controllers
                     n.max = (int)reader["max"];
                     n.avg = (int)reader["avg"];
                     n.date = (DateTime)reader["date"];
+<<<<<<< HEAD
                     n.local = (string)reader["local"];
+=======
+                    //n.local = (string)reader["local"];
+>>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
 
 
                     lista.Add(n);

@@ -39,9 +39,14 @@ namespace AirMonit_Service.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+<<<<<<< HEAD
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\projetoIS\\Desktop\\Projeto" +
             "IS\\AirMonit\\Base de dados\\AirDB.mdf\";Integrated Security=True;Connect Timeout=30" +
             "")]
+=======
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\projIS_Entrega\\AirDB.mdf\"" +
+            ";Integrated Security=True;Connect Timeout=30")]
+>>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
         public string DBConn {
             get {
                 return ((string)(this["DBConn"]));

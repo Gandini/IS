@@ -22,9 +22,15 @@ namespace AirMonit_DLog
         MqttClient m_cClient = new MqttClient("127.0.0.1");
         const String STR_CHANNEL_NAME = "airValues";
         const String STR_CHANNEL_NAME1 = "airAlarm";
+<<<<<<< HEAD
         string[] m_strTopicsInfo = { STR_CHANNEL_NAME};
         SqlConnection con = new SqlConnection(@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = AirDB; Integrated Security = True");
+=======
+        string[] m_strTopicsInfo = { STR_CHANNEL_NAME, STR_CHANNEL_NAME1 };
+>>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
         
+        //SqlConnection con = new SqlConnection(@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = AirDB; Integrated Security = True");
+        SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\projetoIS\Desktop\ProjetoIS\AirMonit\Base de dados\AirDB.mdf';Integrated Security = True");
 
         public Form1()
         {
@@ -53,6 +59,7 @@ namespace AirMonit_DLog
 
                 byte[] qosLevels = { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE };//QoS
                 m_cClient.Subscribe(m_strTopicsInfo, qosLevels);
+               
             }
 
         }
@@ -220,6 +227,14 @@ namespace AirMonit_DLog
             messageReceived[3] = doc.SelectSingleNode("/Airmessage/local").InnerText;
             messageReceived[4] = doc.SelectSingleNode("/Airmessage/errorMessage").InnerText;
 
+<<<<<<< HEAD
+=======
+            messageReceived[0] = doc.SelectSingleNode("/Airmessage/id").InnerText;
+            messageReceived[1] = doc.SelectSingleNode("/Airmessage/molecule").InnerText;
+            messageReceived[2] = doc.SelectSingleNode("/Airmessage/value").InnerText;
+            messageReceived[3] = doc.SelectSingleNode("/Airmessage/time").InnerText;
+            messageReceived[4] = doc.SelectSingleNode("/Airmessage/local").InnerText;
+>>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
 
 
             return messageReceived;
