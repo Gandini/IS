@@ -55,7 +55,6 @@ C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMoni
 C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\obj\Debug\AirMonit_Alarm.exe
 C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\obj\Debug\AirMonit_Alarm.pdb
 C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\bin\Debug\AirSensorNodeDll.dll
-<<<<<<< HEAD
 C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\bin\Debug\AirMonit_Alarm.exe.config
 C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\obj\Debug\AirMonit_Alarm.exe
 C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\obj\Debug\AirMonit_Alarm.pdb
@@ -68,5 +67,3 @@ C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\obj\Debug\AirM
 C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\obj\Debug\AirMonit_Alarm.Form1.resources
 C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\obj\Debug\AirMonit_Alarm.Properties.Resources.resources
 C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Alarm\obj\Debug\AirMonit_Alarm.csproj.GenerateResource.Cache
-=======
->>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27

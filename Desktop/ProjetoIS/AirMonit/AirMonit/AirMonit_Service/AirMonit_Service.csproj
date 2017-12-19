@@ -246,20 +246,14 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
-<<<<<<< HEAD
       <SubType>ASPXCodeBehind</SubType>
-=======
->>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
-<<<<<<< HEAD
       <SubType>ASPXCodeBehind</SubType>
-=======
->>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

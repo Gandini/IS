@@ -37,7 +37,6 @@ C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMoni
 C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.csproj.CoreCompileInputs.cache
 C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.exe
 C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.pdb
-<<<<<<< HEAD
 C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\bin\Debug\AirMonit_Admin.exe.config
 C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.exe
 C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.pdb
@@ -50,18 +49,3 @@ C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirM
 C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.Properties.Resources.resources
 C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.StatisticsForm.resources
 C:\Users\alex_\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.csproj.GenerateResource.Cache
-=======
-C:\projIS_Entrega\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\bin\Debug\AirMonit_Admin.exe.config
-C:\projIS_Entrega\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\bin\Debug\AirMonit_Admin.exe
-C:\projIS_Entrega\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\bin\Debug\AirMonit_Admin.pdb
-C:\projIS_Entrega\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\bin\Debug\Newtonsoft.Json.dll
-C:\projIS_Entrega\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\bin\Debug\Newtonsoft.Json.xml
-C:\projIS_Entrega\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.csprojResolveAssemblyReference.cache
-C:\projIS_Entrega\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.MainForm.resources
-C:\projIS_Entrega\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.Properties.Resources.resources
-C:\projIS_Entrega\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.StatisticsForm.resources
-C:\projIS_Entrega\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.csproj.GenerateResource.Cache
-C:\projIS_Entrega\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.csproj.CoreCompileInputs.cache
-C:\projIS_Entrega\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.exe
-C:\projIS_Entrega\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_Admin\obj\Debug\AirMonit_Admin.pdb
->>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
