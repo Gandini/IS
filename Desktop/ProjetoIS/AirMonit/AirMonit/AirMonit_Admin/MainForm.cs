@@ -23,7 +23,12 @@ namespace AirMonit_Admin
         }
 
         private void Form1_Load(object sender, EventArgs e)
+<<<<<<< HEAD
         { 
+=======
+        {
+          //  updateEvents();
+>>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
         }
 
         private void btnStatistics_Click(object sender, EventArgs e)
@@ -45,12 +50,20 @@ namespace AirMonit_Admin
 
             chkBoxFilterDate.Enabled = true;
             checkBoxSensorsFilterDate.Enabled = true;
+<<<<<<< HEAD
+=======
+            dtp_sensorData.Enabled = true;
+            chkBoxFilterDate.Enabled = true;
+            dtp_startDate.Enabled = true;
+            dtp_endDate.Enabled = true;
+>>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
 
             btnStatistics.Enabled = true;
             btnStatistics.Text = "Statistics for " + listBoxCidades.Text;
 
 
             //sensores
+<<<<<<< HEAD
             listBoxCO.Items.Clear();
             HttpWebRequest requestCO = WebRequest.Create(@"http://localhost:52643/api/" + listBoxCidades.SelectedItem.ToString() + "/CO") as HttpWebRequest;
             requestCO.ContentType = "application/json";
@@ -88,6 +101,9 @@ namespace AirMonit_Admin
             }
 
 
+=======
+            getSensors();
+>>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
 
 
             //alarmes
@@ -183,7 +199,11 @@ namespace AirMonit_Admin
             }
 
             listBoxNO2.Items.Clear();
+<<<<<<< HEAD
             HttpWebRequest requestNO2 = WebRequest.Create(@"http://localhost:52643/api/" + listBoxCidades.SelectedItem.ToString() + "/NO") as HttpWebRequest;
+=======
+            HttpWebRequest requestNO2 = WebRequest.Create(@"http://localhost:52643/api/" + listBoxCidades.SelectedItem.ToString() + "/NO2") as HttpWebRequest;
+>>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
             requestNO2.ContentType = "application/json";
             HttpWebResponse responseNO2 = requestNO2.GetResponse() as HttpWebResponse;
             string jsonNO2 = new StreamReader(responseNO2.GetResponseStream()).ReadToEnd();
@@ -239,6 +259,28 @@ namespace AirMonit_Admin
             {
                 listBoxO3.Items.Add("City: " + valoresO3[i].local + "  Value: " + valoresO3[i].value + " Date: " + valoresO3[i].date);
             }
+<<<<<<< HEAD
+=======
+        }
+
+        private void updateEvents()
+        {
+            listBoxEvents.Items.Clear();
+            HttpWebRequest requestEvents = WebRequest.Create(@"http://localhost:52643/api/Event") as HttpWebRequest;
+            requestEvents.ContentType = "application/json";
+            HttpWebResponse responseEvents = requestEvents.GetResponse() as HttpWebResponse;
+            string jsonEvents = new StreamReader(responseEvents.GetResponseStream()).ReadToEnd();
+            List<O3> valoresEvents = JsonConvert.DeserializeObject<List<O3>>(jsonEvents);
+            for (int i = 0; i < valoresEvents.Count; i++)
+            {
+                listBoxEvents.Items.Add("City: " + valoresEvents[i].local + "  Value: " + valoresEvents[i].value + " Date: " + valoresEvents[i].date);
+            }
+        }
+
+        private void btnUpdateEvents_Click(object sender, EventArgs e)
+        {
+            updateEvents();
+>>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
         }
     }
 }

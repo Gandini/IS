@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -43,6 +44,23 @@
             System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series17 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series18 = new System.Windows.Forms.DataVisualization.Charting.Series();
+=======
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+>>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
             this.chartCO = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dtpDay = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -64,6 +82,7 @@
             // 
             // chartCO
             // 
+<<<<<<< HEAD
             chartArea4.Name = "ChartAreaCO";
             this.chartCO.ChartAreas.Add(chartArea4);
             legend4.Name = "Legend1";
@@ -82,6 +101,26 @@
             this.chartCO.Series.Add(series10);
             this.chartCO.Series.Add(series11);
             this.chartCO.Series.Add(series12);
+=======
+            chartArea1.Name = "ChartAreaCO";
+            this.chartCO.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartCO.Legends.Add(legend1);
+            this.chartCO.Location = new System.Drawing.Point(6, 30);
+            this.chartCO.Name = "chartCO";
+            series1.ChartArea = "ChartAreaCO";
+            series1.Legend = "Legend1";
+            series1.Name = "Maximum";
+            series2.ChartArea = "ChartAreaCO";
+            series2.Legend = "Legend1";
+            series2.Name = "Average";
+            series3.ChartArea = "ChartAreaCO";
+            series3.Legend = "Legend1";
+            series3.Name = "Minimum";
+            this.chartCO.Series.Add(series1);
+            this.chartCO.Series.Add(series2);
+            this.chartCO.Series.Add(series3);
+>>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
             this.chartCO.Size = new System.Drawing.Size(655, 439);
             this.chartCO.TabIndex = 0;
             this.chartCO.Text = "chartCO";
@@ -121,6 +160,10 @@
             this.checkBox1.TabIndex = 21;
             this.checkBox1.Text = "Filter by hour";
             this.checkBox1.UseVisualStyleBackColor = true;
+<<<<<<< HEAD
+=======
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+>>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
             // 
             // dtpHour
             // 
@@ -153,6 +196,7 @@
             // 
             // chartNO2
             // 
+<<<<<<< HEAD
             chartArea5.Name = "ChartAreaNO2";
             this.chartNO2.ChartAreas.Add(chartArea5);
             legend5.Name = "Legend1";
@@ -171,6 +215,26 @@
             this.chartNO2.Series.Add(series13);
             this.chartNO2.Series.Add(series14);
             this.chartNO2.Series.Add(series15);
+=======
+            chartArea2.Name = "ChartAreaNO2";
+            this.chartNO2.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartNO2.Legends.Add(legend2);
+            this.chartNO2.Location = new System.Drawing.Point(6, 30);
+            this.chartNO2.Name = "chartNO2";
+            series4.ChartArea = "ChartAreaNO2";
+            series4.Legend = "Legend1";
+            series4.Name = "Maximum";
+            series5.ChartArea = "ChartAreaNO2";
+            series5.Legend = "Legend1";
+            series5.Name = "Average";
+            series6.ChartArea = "ChartAreaNO2";
+            series6.Legend = "Legend1";
+            series6.Name = "Minimum";
+            this.chartNO2.Series.Add(series4);
+            this.chartNO2.Series.Add(series5);
+            this.chartNO2.Series.Add(series6);
+>>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
             this.chartNO2.Size = new System.Drawing.Size(655, 439);
             this.chartNO2.TabIndex = 0;
             this.chartNO2.Text = "chartNO2";
@@ -187,6 +251,7 @@
             // 
             // chartO3
             // 
+<<<<<<< HEAD
             chartArea6.Name = "ChartAreaO3";
             this.chartO3.ChartAreas.Add(chartArea6);
             legend6.Name = "Legend1";
@@ -205,6 +270,26 @@
             this.chartO3.Series.Add(series16);
             this.chartO3.Series.Add(series17);
             this.chartO3.Series.Add(series18);
+=======
+            chartArea3.Name = "ChartAreaO3";
+            this.chartO3.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartO3.Legends.Add(legend3);
+            this.chartO3.Location = new System.Drawing.Point(6, 30);
+            this.chartO3.Name = "chartO3";
+            series7.ChartArea = "ChartAreaO3";
+            series7.Legend = "Legend1";
+            series7.Name = "Maximum";
+            series8.ChartArea = "ChartAreaO3";
+            series8.Legend = "Legend1";
+            series8.Name = "Average";
+            series9.ChartArea = "ChartAreaO3";
+            series9.Legend = "Legend1";
+            series9.Name = "Minimum";
+            this.chartO3.Series.Add(series7);
+            this.chartO3.Series.Add(series8);
+            this.chartO3.Series.Add(series9);
+>>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
             this.chartO3.Size = new System.Drawing.Size(655, 439);
             this.chartO3.TabIndex = 0;
             this.chartO3.Text = "chartO3";
@@ -224,6 +309,10 @@
             this.Controls.Add(this.dtpDay);
             this.Name = "StatisticsForm";
             this.Text = "Statistics";
+<<<<<<< HEAD
+=======
+            this.Load += new System.EventHandler(this.StatisticsForm_Load);
+>>>>>>> 29802e09e4080cf1f0c9b55b25512b2a138dbc27
             ((System.ComponentModel.ISupportInitialize)(this.chartCO)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

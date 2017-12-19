@@ -43,3 +43,14 @@ C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\obj\Debug\AirMoni
 C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\obj\Debug\AirMonit_DLog.csproj.CoreCompileInputs.cache
 C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\obj\Debug\AirMonit_DLog.exe
 C:\projetoIS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\obj\Debug\AirMonit_DLog.pdb
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\bin\Debug\AirMonit_DLog.exe.config
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\bin\Debug\AirMonit_DLog.exe
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\bin\Debug\AirMonit_DLog.pdb
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\bin\Debug\M2Mqtt.Net.pdb
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\obj\Debug\AirMonit_DLog.csprojResolveAssemblyReference.cache
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\obj\Debug\AirMonit_DLog.Form1.resources
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\obj\Debug\AirMonit_DLog.Properties.Resources.resources
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\obj\Debug\AirMonit_DLog.csproj.GenerateResource.Cache
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\obj\Debug\AirMonit_DLog.csproj.CoreCompileInputs.cache
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\obj\Debug\AirMonit_DLog.exe
+C:\Users\mcaro\Desktop\IS-PROJETO\IS\Desktop\ProjetoIS\AirMonit\AirMonit\AirMonit_DLog\obj\Debug\AirMonit_DLog.pdb
